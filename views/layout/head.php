@@ -17,15 +17,20 @@
 <link href="../assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
 <link href="../assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS Login-->
+<link href="../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS Data View Tables-->
+<link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css" rel="stylesheet" type="text/css" />
+<link href="../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL PLUGINS Data View Tables-->
 <!-- BEGIN THEME LAYOUT STYLES -->
 <link href="../assets/layouts/layout2/css/layout-rtl.min.css" rel="stylesheet" type="text/css" />
 <link href="../assets/layouts/layout2/css/themes/blue-rtl.min.css" rel="stylesheet" type="text/css" id="style_color" />
 <link href="../assets/layouts/layout2/css/custom-rtl.min.css" rel="stylesheet" type="text/css" />
 <!-- END THEME LAYOUT STYLES -->
-<!-- BEGIN PAGE LEVEL PLUGINS Login-->
-<link href="../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-<link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
-<!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL STYLES -->
 <link href="../assets/global/css/components-rtl.min.css" rel="stylesheet" id="style_components" type="text/css" />
 <link href="../assets/global/css/plugins-rtl.min.css" rel="stylesheet" type="text/css" />
