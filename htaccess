@@ -1,0 +1,49 @@
+Options +FollowSymlinks
+RewriteEngine On
+RewriteBase /accounts/views
+
+RewriteRule ^home$ home.php [L]
+RewriteRule ^login$ login.php [L]
+
+ 
+Options All -Indexes
+
+<Files config.inc.php>
+Order Allow,Deny
+Deny from all 
+</Files>
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+#ErrorDocument 500 /accounts/err/500.php
+#ErrorDocument 404 /accounts/404.php
+#ErrorDocument 403 /accounts/err/403.php
+
+<IfModule mod_expires.c>
+
+ExpiresActive On
+ExpiresDefault "access plus 1 month"
+
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/jpg "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+
+
+</IfModule>
+
+<Files *.php>
+SetOutputFilter DEFLATE
+</Files>
+<Files *.js>
+SetOutputFilter DEFLATE
+</Files>
+<Files *.css>
+SetOutputFilter DEFLATE
+</Files>
+<Files *.html>
+SetOutputFilter DEFLATE
+</Files>
+
