@@ -49,7 +49,7 @@
                         <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
                     </div>
                 </div-->
-                <div class="login-options">
+                <!--div class="login-options">
                     <h4 class="pull-left">Or login with</h4>
                     <ul class="social-icons pull-right">
                         <li>
@@ -65,7 +65,7 @@
                             <a class="social-icon-color linkedin" data-original-title="Linkedin" href="javascript:;"></a>
                         </li>
                     </ul>
-                </div>
+                </div-->
                 <div class="create-account">
                     <p>
                         <a href="javascript:;" class="btn-primary btn" id="register-btn">Create an account</a>
@@ -74,7 +74,7 @@
             </form>
             <!-- END LOGIN FORM -->
             <!-- BEGIN FORGOT PASSWORD FORM -->
-            <form class="forget-form" action="index.html" method="post">
+            <!--form class="forget-form" action="index.html" method="post">
                 <div class="form-title">
                     <span class="form-title">Forget Password ?</span>
                     <span class="form-subtitle">Enter your e-mail to reset it.</span>
@@ -85,7 +85,7 @@
                     <button type="button" id="back-btn" class="btn btn-default">Back</button>
                     <button type="submit" class="btn btn-primary uppercase pull-right">Submit</button>
                 </div>
-            </form>
+            </form-->
             <!-- END FORGOT PASSWORD FORM -->
             <!-- BEGIN REGISTRATION FORM -->
             <form class="register-form" action="index.html" method="post">
@@ -103,7 +103,7 @@
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Address</label>
                     <input class="form-control placeholder-no-fix" type="text" placeholder="Address" name="address" /> </div>
-                <div class="form-group">
+                <!--div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">City/Town</label>
                     <input class="form-control placeholder-no-fix" type="text" placeholder="City/Town" name="city" /> </div>
                 <div class="form-group">
@@ -345,7 +345,7 @@
                         <option value="ZM">Zambia</option>
                         <option value="ZW">Zimbabwe</option>
                     </select>
-                </div>
+                </div-->
                 <p class="hint"> Enter your account details below: </p>
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Username</label>
@@ -372,7 +372,7 @@
             </form>
             <!-- END REGISTRATION FORM -->
         </div>
-        <div class="copyright hide"> 2014 © Metronic. Admin Dashboard Template. </div>
+        <div class="copyright hide"> 2017 © the-lion. Admin Dashboard Template. </div>
         <!-- END LOGIN -->
         <!--[if lt IE 9]>
 <script src="../assets/global/plugins/respond.min.js"></script>

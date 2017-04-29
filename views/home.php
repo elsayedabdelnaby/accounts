@@ -35,7 +35,7 @@
                 <div class="page-content">
                     <!-- BEGIN PAGE HEADER-->
                     <!-- BEGIN THEME PANEL -->
-                    <?php require_once'layout\theme_panel.php' ?>
+                    <?php //require_once'layout\theme_panel.php' ?>
                     <!-- END THEME PANEL -->
                     <h1 class="page-title"> الرئسية
                         <small></small>
@@ -44,7 +44,7 @@
                         <ul class="page-breadcrumb">
                             <li>
                                 <i class="icon-home"></i>
-                                <a href="../views/home.php">Home</a>
+                                <a href="../views/home.php">الرئسية</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
