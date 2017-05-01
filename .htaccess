@@ -1,0 +1,41 @@
+Options +FollowSymlinks
+RewriteEngine On
+RewriteBase /accounts
+
+
+#RewriteRule ^api/areas/insert/([^/]*)/([^/]*)/([^/]*)/([^/]*)$ api/ara.php?action=$1&name_en=$2&name_ar=$3&rgn=$4 [L]
+RewriteRule ^$ views/home.php [L]
+RewriteRule ^home$ views/home.php [L]
+RewriteRule ^login$ views/login.php [L]
+RewriteRule ^students$ controllers/studentscontroller.php [L]
+RewriteRule ^students/([^/]*)$ controllers/studentscontroller.php?id=$1 [L]
+RewriteRule ^api/currencies$ api/currency.php [L]
+RewriteRule ^pages/area/insert/area$ pages/inst/ara.php [L]
+
+Options All -Indexes
+
+<Files config.inc.php>
+Order Allow,Deny
+Deny from all 
+</Files>
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+ErrorDocument 500 /accounts/views/err/500.php
+ErrorDocument 404 /accounts/views/err/404.php
+ErrorDocument 403 /accounts/views/err/403.php
+
+<Files *.php>
+SetOutputFilter DEFLATE
+</Files>
+<Files *.js>
+SetOutputFilter DEFLATE
+</Files>
+<Files *.css>
+SetOutputFilter DEFLATE
+</Files>
+<Files *.html>
+SetOutputFilter DEFLATE
+</Files>

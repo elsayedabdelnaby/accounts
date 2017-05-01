@@ -6,36 +6,36 @@
 <meta content="" name="author" />
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-<link href="../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link href="../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
-<link href="../assets/global/plugins/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css" />
-<link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch-rtl.min.css" rel="stylesheet" type="text/css" />
+<link href="./assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="./assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+<link href="./assets/global/plugins/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css" />
+<link href="./assets/global/plugins/bootstrap-switch/css/bootstrap-switch-rtl.min.css" rel="stylesheet" type="text/css" />
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL PLUGINS Home-->
-<link href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
-<link href="../assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
-<link href="../assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
-<link href="../assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
+<link href="./assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+<link href="./assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+<link href="./assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+<link href="./assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS Login-->
-<link href="../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-<link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="./assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+<link href="./assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS Data View Tables-->
-<link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
-<link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css" rel="stylesheet" type="text/css" />
-<link href="../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+<link href="./assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+<link href="./assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css" rel="stylesheet" type="text/css" />
+<link href="./assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL PLUGINS Data View Tables-->
 <!-- BEGIN THEME LAYOUT STYLES -->
-<link href="../assets/layouts/layout2/css/layout-rtl.min.css" rel="stylesheet" type="text/css" />
-<link href="../assets/layouts/layout2/css/themes/blue-rtl.min.css" rel="stylesheet" type="text/css" id="style_color" />
-<link href="../assets/layouts/layout2/css/custom-rtl.min.css" rel="stylesheet" type="text/css" />
+<link href="./assets/layouts/layout2/css/layout-rtl.min.css" rel="stylesheet" type="text/css" />
+<link href="./assets/layouts/layout2/css/themes/blue-rtl.min.css" rel="stylesheet" type="text/css" id="style_color" />
+<link href="./assets/layouts/layout2/css/custom-rtl.min.css" rel="stylesheet" type="text/css" />
 <!-- END THEME LAYOUT STYLES -->
 <!-- BEGIN THEME GLOBAL STYLES -->
-<link href="../assets/global/css/components-rtl.min.css" rel="stylesheet" id="style_components" type="text/css" />
-<link href="../assets/global/css/plugins-rtl.min.css" rel="stylesheet" type="text/css" />
+<link href="./assets/global/css/components-rtl.min.css" rel="stylesheet" id="style_components" type="text/css" />
+<link href="./assets/global/css/plugins-rtl.min.css" rel="stylesheet" type="text/css" />
 <!-- END THEME GLOBAL STYLES -->
 <!-- BEGIN PAGE LEVEL PLUGINS Login-->
-<link href="../assets/pages/css/login-2-rtl.min.css" rel="stylesheet" type="text/css" />
+<link href="./assets/pages/css/login-2-rtl.min.css" rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL PLUGINS Login-->
 <link rel="shortcut icon" href="favicon.ico" />

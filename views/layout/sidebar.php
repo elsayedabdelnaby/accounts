@@ -2,7 +2,7 @@
     <!-- BEGIN SIDEBAR MENU -->
     <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item start active open">
-            <a href="../views/home.php" class="nav-link nav-toggle">
+            <a href="./views/home.php" class="nav-link nav-toggle">
                 <i class="icon-home"></i>
                 <span class="title">الرئسية</span>
                 <span class="selected"></span>

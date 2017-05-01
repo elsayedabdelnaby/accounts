@@ -63,7 +63,7 @@ class Student {
                 . ' meds_branches.name as branch, meds_branches.id as branch_id,'
                 . ' meds_countries.name AS country, meds_countries.id AS country_id,'
                 . ' meds_cities.name as city, meds_cities.id as city_id,'
-                . ' meds_address.street FROM meds_students'
+                . ' meds_addresses.street FROM meds_students'
                 . ' INNER JOIN meds_branches ON meds_students.branch_id = meds_branches.id'
                 . ' INNER JOIN meds_addresses on meds_students.address_id = meds_addresses.id'
                 . ' INNER JOIN meds_countries ON meds_addresses.country_id = meds_countries.id'
