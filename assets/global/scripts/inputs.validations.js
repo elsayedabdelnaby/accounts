@@ -99,7 +99,7 @@ var InputValidation = function (element) {
             },
             validate_dropdown_input = function () {
                 if (this.isRequired() && $(element).val() < 1) {
-                    return 'This field is required';
+                    return "هذا الحقل يجب إدخاله";
                 } else {
                     return '';
                 }
