@@ -62,9 +62,8 @@
                                         <span class="caption-subject bold">أضافة طالب جديد</span>
                                     </div>
                                 </div>
-                                <form method="POST" action="../controllers/studentscontroller.php" accept-charset="UTF-8" role="form" novalidate="novalidate">
                                 <div class="portlet-body form">
-
+                                    <form method="POST" action="./controllers/studentscontroller.php" accept-charset="UTF-8" role="form" novalidate="novalidate">
                                         <div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
@@ -81,7 +80,7 @@
                                         <div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <select name='country' class='form-control' id='countryList'>
+                                                <select name='country' class='form-control' id='countryList' required="required">
                                                     <option value='0'>أختر</option>
                                                     <?php
                                                     foreach ($countries as $country) {
@@ -145,12 +144,13 @@
                                                 <label for="form_control_1">الملاحظات</label>
                                             </div>
                                         </div>
+                                        <div class="form-actions noborder">
+                                            <button type="reset" class="btn default pull-right" style="margin-left:9px;">إلغاء</button>
+                                            <input type="submit" class="btn blue pull-right submit-button" value="إضافة">
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="form-actions noborder">
-                                    <button type="reset" class="btn default pull-right" style="margin-left:9px;">إلغاء</button>
-                                    <input type="submit" class="btn blue pull-right submit-button" value="إضافة">
-                                </div>
-                                </form>
+
                             </div>
                         </div>
                     <?php } elseif ($form_type == 'update') { ?>

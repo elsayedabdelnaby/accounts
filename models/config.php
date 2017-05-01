@@ -3,6 +3,9 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "test";
+define('URL', 'http://localhost/accounts/');
+date_default_timezone_set('Africa/Cairo');
+set_time_limit(0);
 
 // try {
 //     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

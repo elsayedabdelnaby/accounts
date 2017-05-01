@@ -32,25 +32,23 @@ class Student {
 
     public function add($student) { // take student(associative array) array hold all data you will insert it
         // prepare sql and bind parameters
-        $stmt = $this->conn->prepare('INSERT INTO meds_students (name, phone, mobile, address, balance, created_at, notes, branch_id) 
-        VALUES (:name, :phone, :mobile, :address, :balance, :created_at, :notes, :branch_id)');
+        $stmt = $this->conn->prepare('INSERT INTO meds_students (name, phone, mobile, created_at, notes, branch_id, address_id) 
+        VALUES (:name, :phone, :mobile, :created_at, :notes, :branch_id, :address_id)');
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':phone', $phone);
         $stmt->bindParam(':mobile', $mobile);
-        $stmt->bindParam(':address', $address);
-        $stmt->bindParam(':balance', $balance);
         $stmt->bindParam(':notes', $notes);
         $stmt->bindParam(':branch_id', $branch_id);
         $stmt->bindParam(':created_at', $created_at);
+        $stmt->bindParam(':address_id', $address_id);
         // insert a row
         $name = $student['name'];
         $phone = $student['phone'];
         $mobile = $student['mobile'];
-        $address = $student['address'];
-        $balance = $student['balance'];
         $notes = $student['notes'];
         $branch_id = $student['branch_id'];
         $created_at = $student['created_at'];
+        $address_id = $student['address_id'];
         if ($stmt->execute()) {
             return $this->conn->lastInsertId();
         } else {
@@ -68,7 +66,7 @@ class Student {
                 . ' INNER JOIN meds_addresses on meds_students.address_id = meds_addresses.id'
                 . ' INNER JOIN meds_countries ON meds_addresses.country_id = meds_countries.id'
                 . ' INNER JOIN meds_cities ON meds_addresses.city_id = meds_cities.id'
-                . ' WHERE id = ?';
+                . ' WHERE meds_students.id = ?';
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $student_id, PDO::PARAM_INT);
         if ($stmt->execute()) {
