@@ -15,17 +15,19 @@ $city = new City($conn);
 $branch = new Branch($conn);
 $address = new Address($conn);
 
+$students = $student->fetch_all();
 $countries = $country->fetch_all();
 $cities = $city->fetch_all();
 $branches = $branch->fetch_all();
-$alert_msg = '';
+$success_msg = '';
+$error_msg = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $form_type = 'insert';
     if (isset($_GET['id'])) { // edit/update form
         $student_id = $_GET['id'];
         $form_type = 'update';
-        $row = $student->get($student_id);
+        $row = $student->get('id', $student_id);
         if ($row != false) {
             print_r($row);
             print_r($student->get_branch($student_id));
@@ -33,7 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             echo 'not exist';
         }
     } else {
-        $students = $student->fetch_all();
         $form_type = 'insert';
         include_once '../views/students.php';
     }
@@ -41,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $form_type = 'insert';
     $student_array = array();
     $address_array = array();
-    
+
     $student_array['name'] = $_POST['name'];
     $student_array['phone'] = $_POST['phone'];
     $student_array['mobile'] = $_POST['mobile'];
@@ -51,16 +52,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $student_array['street'] = $_POST['street'];
     $student_array['created_at'] = date('Y-m-d h:i:s');
     $student_array['notes'] = $_POST['notes'];
-    
+
     $address_array['country'] = $_POST['country'];
     $address_array['city'] = $_POST['city'];
     $address_array['street'] = $_POST['street'];
-    $student_array['address_id'] = $address->add($address_array);
-    if($student->add($student_array)){
-        echo "<script>alert('تم اضافة طالب جديد');</script>";
-        header('Location: '.URL.'students');
-    } else{
+
+    if ($student->get('phone', $student_array['phone'])) {
+        $error_msg = 'رقم التليفون موجود مسبقا';
+    } elseif ($student->get('mobile', $student_array['mobile'])) {
+        $error_msg = 'رقم الموبايل موجود مسبقا';
+    } else {
+        $student_array['address_id'] = $address->add($address_array); // add address first, before add the student
+        if ($student->add($student_array)) {
+            $success_msg = 'تم اضافة طالب جديد';
+            $_POST = NULL;
+        }
     }
+    include_once '../views/students.php';
 } elseif ($_SERVER['REQUEST_METHOD'] == 'PATCH') {
     $form_type = 'insert';
 }

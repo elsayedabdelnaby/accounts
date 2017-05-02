@@ -50,6 +50,18 @@
                         </div>
                     </div>
                     <!-- END PAGE HEADER-->
+                    <?php if ($success_msg != '') { ?>
+                        <div id="prefix_1333978461963" class="custom-alerts alert alert-success fade in">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                            <?= $success_msg ?>
+                        </div>
+                    <?php } elseif ($error_msg != '') { ?>
+                        <div id="prefix_1333978461963" class="custom-alerts alert alert-danger fade in">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                            <?= $error_msg ?>
+                        </div>
+                    <?php } ?>
+
                     <div class="row">
                         <!-- WRITE YOUR CONTENT HERE -->
                         <?php
@@ -63,16 +75,16 @@
                                     </div>
                                 </div>
                                 <div class="portlet-body form">
-                                    <form method="POST" action="./controllers/studentscontroller.php" accept-charset="UTF-8" role="form" novalidate="novalidate">
+                                    <form method="POST" action="<?= URL ?>students" accept-charset="UTF-8" role="form" novalidate="novalidate">
                                         <div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="name" type="text">
+                                                <input class="form-control" id="form_control_1" required="required" name="name" type="text" value="<?= @$_POST['name'] ?>">
                                                 <label for="form_control_1">ألاسم</label>
                                             </div>
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="phone" number="phone" type="text">
+                                                <input class="form-control" id="form_control_1" required="required" name="phone" number="phone" type="text" value="<?= @$_POST['phone'] ?>">
                                                 <label for="form_control_1">التليفون</label>
                                             </div>
                                             <div class="col-md-1"></div>
@@ -85,7 +97,7 @@
                                                     <?php
                                                     foreach ($countries as $country) {
                                                         ?>
-                                                        <option value="<?= $country['id'] ?>"><?= $country['name'] ?></option>
+                                                        <option value="<?= $country['id'] ?>" <?php if (@$_POST['country'] == $country['id']) { ?>selected<?php } ?>><?= $country['name'] ?></option>
                                                         <?php
                                                     }
                                                     ?>
@@ -96,7 +108,7 @@
 
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="mobile" number="phone" type="text">
+                                                <input class="form-control" id="form_control_1" required="required" name="mobile" number="phone" type="text" value="<?=@$_POST['mobile']?>">
                                                 <label for="form_control_1">الموبايل</label>
                                             </div>
                                         </div>
@@ -108,7 +120,7 @@
                                                     <?php
                                                     foreach ($cities as $city) {
                                                         ?>
-                                                        <option value="<?= $city['id'] ?>"><?= $city['name'] ?></option>
+                                                        <option value="<?= $city['id'] ?>"<?php if (@$_POST['city'] == $city['id']) { ?>selected<?php } ?>><?= $city['name'] ?></option>
                                                         <?php
                                                     }
                                                     ?>
@@ -123,7 +135,7 @@
                                                     <?php
                                                     foreach ($branches as $branch) {
                                                         ?>
-                                                        <option value="<?= $branch['id'] ?>"><?= $branch['name'] ?></option>
+                                                        <option value="<?= $branch['id'] ?>"<?php if (@$_POST['branch'] == $branch['id']) { ?>selected<?php } ?>><?= $branch['name'] ?></option>
                                                         <?php
                                                     }
                                                     ?>
@@ -135,7 +147,7 @@
                                         <div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" name="street" type="text">
+                                                <input class="form-control" id="form_control_1" name="street" type="text" value="<?=@$_POST['street']?>">
                                                 <label for="form_control_1">الشارع</label>
                                             </div>
                                             <div class="col-md-1"></div>
@@ -145,8 +157,8 @@
                                             </div>
                                         </div>
                                         <div class="form-actions noborder">
-                                            <button type="reset" class="btn default pull-right" style="margin-left:9px;">إلغاء</button>
-                                            <input type="submit" class="btn blue pull-right submit-button" value="إضافة">
+                                            <input type="submit" class="btn blue submit-button" value="إضافة">
+                                            <button type="reset" class="btn default" style="margin-right:9px;">إلغاء</button>
                                         </div>
                                     </form>
                                 </div>
@@ -246,7 +258,7 @@
                                                 foreach ($students as $student) {
                                                     ?>
                                                     <tr>
-                                                        <td> <?= $student['name'] ?> </td>
+                                                        <td><a href="<?=URL?>students/<?=$student['id']?>"><?= $student['name'] ?> </a></td>
                                                         <td> <?= $student['phone'] ?> </td>
                                                         <td> <?= $student['mobile'] ?> </td>
                                                         <td> <?= $student['balance'] ?> </td>

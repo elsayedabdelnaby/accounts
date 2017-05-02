@@ -56,7 +56,7 @@ class Student {
         }
     }
 
-    public function get($student_id) {
+    public function get($key, $value) {
         $query = 'SELECT meds_students.id, meds_students.name, meds_students.phone, meds_students.mobile, meds_students.balance, meds_students.notes,'
                 . ' meds_branches.name as branch, meds_branches.id as branch_id,'
                 . ' meds_countries.name AS country, meds_countries.id AS country_id,'
@@ -66,9 +66,9 @@ class Student {
                 . ' INNER JOIN meds_addresses on meds_students.address_id = meds_addresses.id'
                 . ' INNER JOIN meds_countries ON meds_addresses.country_id = meds_countries.id'
                 . ' INNER JOIN meds_cities ON meds_addresses.city_id = meds_cities.id'
-                . ' WHERE meds_students.id = ?';
+                . ' WHERE meds_students.'.$key.' = ?';
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $student_id, PDO::PARAM_INT);
+        $stmt->bindParam(1, $value, PDO::PARAM_INT);
         if ($stmt->execute()) {
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } else {
