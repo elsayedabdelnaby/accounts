@@ -58,9 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $address_array['street'] = $_POST['street'];
 
     if ($student->get('phone', $student_array['phone'])) {
-        $error_msg = 'رقم التليفون موجود مسبقا';
+        $error_msg = 'خطأ رقم التليفون موجود مسبقا';
     } elseif ($student->get('mobile', $student_array['mobile'])) {
-        $error_msg = 'رقم الموبايل موجود مسبقا';
+        $error_msg = 'خطأ رقم الموبايل موجود مسبقا';
     } else {
         $student_array['address_id'] = $address->add($address_array); // add address first, before add the student
         if ($student->add($student_array)) {

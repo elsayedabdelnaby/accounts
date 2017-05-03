@@ -51,17 +51,12 @@
                     </div>
                     <!-- END PAGE HEADER-->
                     <?php if ($success_msg != '') { ?>
-                        <div id="prefix_1333978461963" class="custom-alerts alert alert-success fade in">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                            <?= $success_msg ?>
+                        <div id="prefix_1333978461963" title="اضافة طالب جديد" message="<?=$success_msg?>" btn-class="btn-success" type="success">
                         </div>
                     <?php } elseif ($error_msg != '') { ?>
-                        <div id="prefix_1333978461963" class="custom-alerts alert alert-danger fade in">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                            <?= $error_msg ?>
+                        <div id="prefix_1333978461963" title="اضافة طالب جديد" message="<?=$error_msg?>" btn-class="btn-danger" type="error">
                         </div>
                     <?php } ?>
-
                     <div class="row">
                         <!-- WRITE YOUR CONTENT HERE -->
                         <?php
@@ -108,7 +103,7 @@
 
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="mobile" number="phone" type="text" value="<?=@$_POST['mobile']?>">
+                                                <input class="form-control" id="form_control_1" required="required" name="mobile" number="phone" type="text" value="<?= @$_POST['mobile'] ?>">
                                                 <label for="form_control_1">الموبايل</label>
                                             </div>
                                         </div>
@@ -147,7 +142,7 @@
                                         <div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" name="street" type="text" value="<?=@$_POST['street']?>">
+                                                <input class="form-control" id="form_control_1" name="street" type="text" value="<?= @$_POST['street'] ?>">
                                                 <label for="form_control_1">الشارع</label>
                                             </div>
                                             <div class="col-md-1"></div>
@@ -258,7 +253,7 @@
                                                 foreach ($students as $student) {
                                                     ?>
                                                     <tr>
-                                                        <td><a href="<?=URL?>students/<?=$student['id']?>"><?= $student['name'] ?> </a></td>
+                                                        <td><a href="<?= URL ?>students/<?= $student['id'] ?>"><?= $student['name'] ?> </a></td>
                                                         <td> <?= $student['phone'] ?> </td>
                                                         <td> <?= $student['mobile'] ?> </td>
                                                         <td> <?= $student['balance'] ?> </td>

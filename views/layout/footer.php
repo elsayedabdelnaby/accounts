@@ -58,6 +58,8 @@
             <script src="./assets/pages/scripts/table-datatables-buttons.min.js" type="text/javascript"></script>
             <script src="./assets/layouts/layout2/scripts/demo.min.js" type="text/javascript"></script>
             <!-- END PAGE LEVEL PLUGINS -->
+             <script src="./assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js" type="text/javascript"></script>
+            <script src="./assets/pages/scripts/ui-sweetalert.min.js" type="text/javascript"></script>
             <!-- BEGIN THEME GLOBAL SCRIPTS -->
             <script src="./assets/global/scripts/app.min.js" type="text/javascript"></script>
             <!-- END THEME GLOBAL SCRIPTS -->
