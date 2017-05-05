@@ -28,47 +28,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $student_id = $_GET['id'];
         $form_type = 'update';
         $row = $student->get('id', $student_id);
-        if ($row != false) {
-            print_r($row);
-        } else {
-            echo 'not exist';
+        if ($row == false) {
+            $form_type = 'insert';
+            $error_msg = 'هذا الطالب غير موجود';
+            include_once '../views/students.php';
+            $error_msg = '';
         }
+        include_once '../views/students.php';
+        $error_msg = '';
     } else {
         $form_type = 'insert';
         include_once '../views/students.php';
     }
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $form_type = 'insert';
     $student_array = array();
     $address_array = array();
 
     $student_array['name'] = $_POST['name'];
     $student_array['phone'] = $_POST['phone'];
     $student_array['mobile'] = $_POST['mobile'];
-    $student_array['country_id'] = $_POST['country'];
-    $student_array['city_id'] = $_POST['city'];
     $student_array['branch_id'] = $_POST['branch'];
-    $student_array['street'] = $_POST['street'];
     $student_array['created_at'] = date('Y-m-d h:i:s');
     $student_array['notes'] = $_POST['notes'];
 
     $address_array['country'] = $_POST['country'];
     $address_array['city'] = $_POST['city'];
     $address_array['street'] = $_POST['street'];
-
-    if ($student->get('phone', $student_array['phone'])) {
-        $error_msg = 'خطأ رقم التليفون موجود مسبقا';
-    } elseif ($student->get('mobile', $student_array['mobile'])) {
-        $error_msg = 'خطأ رقم الموبايل موجود مسبقا';
+    if (isset($_GET['id'])) { // update request
+        
     } else {
-        $student_array['address_id'] = $address->add($address_array); // add address first, before add the student
-        if ($student->add($student_array)) {
-            $success_msg = 'تم اضافة طالب جديد';
-            $_POST = NULL;
+        $form_type = 'insert';
+        if ($student->get('phone', $student_array['phone'])) {
+            $error_msg = 'خطأ رقم التليفون موجود مسبقا';
+        } elseif ($student->get('mobile', $student_array['mobile'])) {
+            $error_msg = 'خطأ رقم الموبايل موجود مسبقا';
+        } else {
+            $student_array['address_id'] = $address->add($address_array); // add address first, before add the student
+            if ($student->add($student_array)) {
+                $success_msg = 'تم اضافة طالب جديد';
+                $_POST = NULL;
+            }
         }
+        include_once '../views/students.php';
+        $success_msg = '';
     }
-    include_once '../views/students.php';
-    $success_msg = '';
 } elseif ($_SERVER['REQUEST_METHOD'] == 'PATCH') {
     $form_type = 'insert';
 }

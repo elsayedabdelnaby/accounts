@@ -36,10 +36,22 @@ class Country {
         }
     }
 
-    public function get($country_id) {
-        $query = 'SELECT * FROM meds_countries WHERE id = ?';
+    public function update($country) {
+        $query = 'UPDATE meds_countries SET name = ? WHERE id = ?';
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $country_id, PDO::PARAM_INT);
+        $stmt->bindParam(1, $country['name'], PDO::PARAM_STR);
+        $stmt->bindParam(2, $country['id'], PDO::PARAM_INT);
+        if ($stmt->execute()) {
+            return $stmt->rowCount();
+        } else {
+            return false;
+        }
+    }
+
+    public function get($key, $value) {
+        $query = 'SELECT * FROM meds_countries WHERE ' . $key . ' = ?';
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $value, PDO::PARAM_INT);
         if ($stmt->execute()) {
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } else {
