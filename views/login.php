@@ -1,4 +1,4 @@
-
+<?php require_once '../models/config.php';?>
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
     <!--<![endif]-->

@@ -7,7 +7,7 @@ require_once'../models/City.php';
 require_once'../models/Branch.php';
 require_once'../models/Address.php';
 
-$database = new Database('localhost', 'root', '', 'test');
+$database = new Database('localhost', 'root', '', 'accounts');
 $conn = $database->get_connection();
 $student = new Student($conn);
 $country = new Country($conn);
@@ -30,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $row = $student->get('id', $student_id);
         if ($row != false) {
             print_r($row);
-            print_r($student->get_branch($student_id));
         } else {
             echo 'not exist';
         }
@@ -69,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         }
     }
     include_once '../views/students.php';
+    $success_msg = '';
 } elseif ($_SERVER['REQUEST_METHOD'] == 'PATCH') {
     $form_type = 'insert';
 }

@@ -74,7 +74,7 @@
                                         <div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="name" type="text" value="<?= @$_POST['name'] ?>">
+                                                <input class="form-control" id="form_control_1" required="required" name="name" type="text" value="<?= @$_POST['name'] ?>" autocomplete="off">
                                                 <label for="form_control_1">ألاسم</label>
                                             </div>
                                             <div class="col-md-1"></div>

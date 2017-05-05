@@ -36,12 +36,24 @@ class Branch {
         }
     }
 
-    public function get($branch_id) {
-        $query = 'SELECT * FROM meds_branches WHERE id = ?';
+    public function get($key, $value) {
+        $query = 'SELECT * FROM meds_branches WHERE ' . $key . ' = ?';
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $branch_id, PDO::PARAM_INT);
+        $stmt->bindParam(1, $value, PDO::PARAM_INT);
         if ($stmt->execute()) {
             return $stmt->fetch(PDO::FETCH_ASSOC);
+        } else {
+            return false;
+        }
+    }
+
+    public function update($branch) {
+        $query = 'UPDATE meds_branches SET name = ? WHERE id = ?';
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $branch['name'], PDO::PARAM_STR);
+        $stmt->bindParam(2, $branch['id'], PDO::PARAM_INT);
+        if ($stmt->execute()) {
+            return $stmt->rowCount();
         } else {
             return false;
         }

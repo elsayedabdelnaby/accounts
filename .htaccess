@@ -9,6 +9,8 @@ RewriteRule ^home$ views/home.php [L]
 RewriteRule ^login$ views/login.php [L]
 RewriteRule ^students$ controllers/studentscontroller.php [L]
 RewriteRule ^students/([^/]*)$ controllers/studentscontroller.php?id=$1 [L]
+RewriteRule ^branches$ controllers/branchescontroller.php [L]
+RewriteRule ^branches/([^/]*)$ controllers/branchescontroller.php?id=$1 [L]
 RewriteRule ^api/currencies$ api/currency.php [L]
 RewriteRule ^pages/area/insert/area$ pages/inst/ara.php [L]
 
