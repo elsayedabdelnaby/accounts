@@ -32,6 +32,20 @@ class Address {
         }
     }
 
+    public function update($address) {
+        $query = 'UPDATE meds_addresses SET street = ?, city_id = ?, country_id = ? WHERE id = ?';
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $address['street'], PDO::PARAM_STR);
+        $stmt->bindParam(2, $address['city'], PDO::PARAM_INT);
+        $stmt->bindParam(3, $address['country'], PDO::PARAM_INT);
+        $stmt->bindParam(4, $address['id'], PDO::PARAM_INT);
+        if ($stmt->execute()) {
+            return $stmt->rowCount();
+        } else {
+            return false;
+        }
+    }
+
     public function get($address_id) {
         $query = 'SELECT meds_addresses.id, meds_addresses.street, meds_countries.id AS country_id, meds_countries.name AS country, '
                 . 'meds_cities.id AS city_id, meds_cities.name AS city FROM meds_addresses'

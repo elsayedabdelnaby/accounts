@@ -15,7 +15,7 @@ class Student {
                 . ' meds_cities.name as city, meds_cities.id as city_id,'
                 . ' meds_addresses.street FROM meds_students'
                 . ' INNER JOIN meds_branches ON meds_students.branch_id = meds_branches.id'
-                . ' INNER JOIN meds_addresses on meds_students.address_id = meds_addresses.id'
+                . ' INNER JOIN meds_addresses ON meds_students.address_id = meds_addresses.id'
                 . ' INNER JOIN meds_countries ON meds_addresses.country_id = meds_countries.id'
                 . ' INNER JOIN meds_cities ON meds_addresses.city_id = meds_cities.id';
         $stmt = $this->conn->prepare($query);
@@ -56,8 +56,9 @@ class Student {
         }
     }
 
-    public function get($key, $value) {
-        $query = 'SELECT meds_students.id, meds_students.name, meds_students.phone, meds_students.mobile, meds_students.balance, meds_students.notes,'
+    public function get($conditions) {
+        $query = 'SELECT meds_students.id, meds_students.name, meds_students.phone,'
+                . ' meds_students.mobile, meds_students.balance, meds_students.notes, meds_students.address_id,'
                 . ' meds_branches.name as branch, meds_branches.id as branch_id,'
                 . ' meds_countries.name AS country, meds_countries.id AS country_id,'
                 . ' meds_cities.name as city, meds_cities.id as city_id,'
@@ -65,10 +66,20 @@ class Student {
                 . ' INNER JOIN meds_branches ON meds_students.branch_id = meds_branches.id'
                 . ' INNER JOIN meds_addresses on meds_students.address_id = meds_addresses.id'
                 . ' INNER JOIN meds_countries ON meds_addresses.country_id = meds_countries.id'
-                . ' INNER JOIN meds_cities ON meds_addresses.city_id = meds_cities.id'
-                . ' WHERE meds_students.'.$key.' = ?';
+                . ' INNER JOIN meds_cities ON meds_addresses.city_id = meds_cities.id WHERE ';
+        if (!empty($conditions)) {
+            $count = 0;
+            foreach ($conditions as $key => $value) {
+                if ($count == 0) {
+                    $query .= $key . $value;
+                } else {
+                    $query .= ' AND ' . $key . $value;
+                }
+                $count++;
+            }
+        }
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $value, PDO::PARAM_INT);
+        $count = 1;
         if ($stmt->execute()) {
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } else {
@@ -119,6 +130,22 @@ class Student {
         $stmt->bindParam(1, $student_id, PDO::PARAM_INT);
         if ($stmt->execute()) {
             return $stmt->fetch(PDO::FETCH_ASSOC);
+        } else {
+            return false;
+        }
+    }
+
+    public function update($student) {
+        $query = 'UPDATE meds_students SET name = ?, phone = ?, mobile = ?, notes = ?, branch_id = ? WHERE id = ?';
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $student['name'], PDO::PARAM_STR);
+        $stmt->bindParam(2, $student['phone'], PDO::PARAM_STR);
+        $stmt->bindParam(3, $student['mobile'], PDO::PARAM_STR);
+        $stmt->bindParam(4, $student['notes'], PDO::PARAM_STR);
+        $stmt->bindParam(5, $student['branch_id'], PDO::PARAM_INT);
+        $stmt->bindParam(6, $student['id'], PDO::PARAM_INT);
+        if ($stmt->execute()) {
+            return $stmt->rowCount();
         } else {
             return false;
         }

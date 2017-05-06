@@ -190,7 +190,7 @@
                                                     <?php
                                                     foreach ($countries as $country) {
                                                         ?>
-                                                        <option value="<?= $country['id'] ?>" <?php if ($row['country'] == $country['id']) { ?>selected<?php } ?>><?= $country['name'] ?></option>
+                                                        <option value="<?= $country['id'] ?>" <?php if ($row['country_id'] == $country['id']) { ?>selected<?php } ?>><?= $country['name'] ?></option>
                                                         <?php
                                                     }
                                                     ?>
@@ -213,7 +213,7 @@
                                                     <?php
                                                     foreach ($cities as $city) {
                                                         ?>
-                                                        <option value="<?= $city['id'] ?>"<?php if ($row['city'] == $city['id']) { ?>selected<?php } ?>><?= $city['name'] ?></option>
+                                                        <option value="<?= $city['id'] ?>"<?php if ($row['city_id'] == $city['id']) { ?>selected<?php } ?>><?= $city['name'] ?></option>
                                                         <?php
                                                     }
                                                     ?>
@@ -228,7 +228,7 @@
                                                     <?php
                                                     foreach ($branches as $branch) {
                                                         ?>
-                                                        <option value="<?= $branch['id'] ?>"<?php if ($row['branch'] == $branch['id']) { ?>selected<?php } ?>><?= $branch['name'] ?></option>
+                                                        <option value="<?= $branch['id'] ?>"<?php if ($row['branch_id'] == $branch['id']) { ?>selected<?php } ?>><?= $branch['name'] ?></option>
                                                         <?php
                                                     }
                                                     ?>
