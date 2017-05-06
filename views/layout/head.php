@@ -25,6 +25,11 @@
 <link href="<?= URL ?>assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
 <link href="<?= URL ?>assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css" rel="stylesheet" type="text/css" />
 <link href="<?= URL ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<link href="<?= URL ?>assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+<link href="<?= URL ?>assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+<link href="<?= URL ?>assets/global/plugins/clockface/css/clockface.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL PLUGINS -->
 <!-- END PAGE LEVEL PLUGINS Data View Tables-->
 <link href="<?= URL ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
 <!-- BEGIN THEME LAYOUT STYLES -->

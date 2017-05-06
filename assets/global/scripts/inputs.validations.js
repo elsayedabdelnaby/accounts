@@ -97,6 +97,21 @@ var InputValidation = function (element) {
                 }
                 return sError;
             },
+            validate_phone_input = function () {
+                var sError = "";
+                if (this.isRequired()) {
+                    if (this.isEmpty()) {
+                        sError = "هذا الحقل يجب إدخاله";
+                    } else {
+                        if (!sNumberPattern.test($(element).val())) {
+                            sError = 'هذا الحقل يجب أن يكون رقم';
+                        } else if($(element).val().length < 5){
+                            sError = 'هذا الحقل يجب أن يكون اكثر من اربعة ارقام';
+                        }
+                    }
+                }
+                return sError;
+            },
             validate_dropdown_input = function () {
                 if (this.isRequired() && $(element).val() < 1) {
                     return "هذا الحقل يجب إدخاله";
@@ -114,7 +129,8 @@ var InputValidation = function (element) {
         isEnglish: check_english_required,
         validateTextInput: validate_text_input,
         validateDropdownInput: validate_dropdown_input,
-        validateNumberInput: validate_number_input
+        validateNumberInput: validate_number_input,
+        validatePhoneInput: validate_phone_input
     };
 };
 
@@ -125,7 +141,7 @@ var InputValidation = function (element) {
  * @returns {Boolean}
  */
 function appendError(sError, oField) {
-    if (($($(oField).parent()).children('span')).text() !== "") {
+    if ($(oField).parent().find(".is-error").text() !== "") {
         // if span error exist pass error to it
         $(oField).parent().find(".is-error").text(sError);
         return true;
@@ -135,7 +151,7 @@ function appendError(sError, oField) {
         oSpanError.setAttribute("class", "is-error help-block help-block-error");
         oSpanError.setAttribute('style', 'opacity:1;');
         oSpanError.appendChild(document.createTextNode(sError));
-        $(oField).parent().append(oSpanError);
+        $(oField).after(oSpanError);
         $(oField).parent().addClass("has-error");
         return true;
     }
@@ -148,7 +164,7 @@ function appendError(sError, oField) {
  */
 function removeError(oField) {
     $(oField).parent().removeClass('has-error');
-    ($($(oField).parent()).children('span')).remove();
+    $(oField).parent().find(".is-error").remove();
     return true;
 }
 
@@ -175,6 +191,7 @@ $('.submit-button').bind('click', function () {
     'use strict';
     var aAllTextInputs = $(this).parents('form').find('input[type="text"]'),
             aAllNumberInputs = $(this).parents('form').find('input[number="number"]'),
+            aAllPhonesInputs = $(this).parents('form').find('input[number="phone"]'),
             aAllCheckBoxes = $(this).parents('form').find('input[type="checkbox"]'),
             aAllRadioButtons = $(this).parents('form').find('input[type="radio"]'),
             aAllSelects = $(this).parents('form').find('select'),
@@ -211,6 +228,17 @@ $('.submit-button').bind('click', function () {
             appendError(sError, aAllNumberInputs[index]);
         } else if (($($(aAllNumberInputs[index]).parent()).children('span')).text() !== "") {
             removeError(aAllNumberInputs[index]);
+        }
+    }
+    
+    for (index = 0; index < aAllPhonesInputs.length; index += 1) {
+        var oInput = new InputValidation(aAllPhonesInputs[index]),
+                sError = oInput.validatePhoneInput();
+        if (sError !== "") {
+            bError = 1;
+            appendError(sError, aAllPhonesInputs[index]);
+        } else if (($($(aAllPhonesInputs[index]).parent()).children('span')).text() !== "") {
+            removeError(aAllPhonesInputs[index]);
         }
     }
     toggleForm(bError, ".submit-button");

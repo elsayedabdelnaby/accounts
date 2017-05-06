@@ -91,13 +91,13 @@
         <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="icon-briefcase"></i>
-                <span class="title">Tables</span>
+                <span class="title">الكورسات</span>
                 <span class="arrow"></span>
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="table_static_basic.html" class="nav-link ">
-                        <span class="title">Basic Tables</span>
+                    <a href="<?= URL ?>courses" class="nav-link ">
+                        <span class="title">اضافة كورس جديد</span>
                     </a>
                 </li>
                 <li class="nav-item  ">
