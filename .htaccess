@@ -19,6 +19,8 @@ RewriteRule ^courses$ controllers/coursescontroller.php [L]
 RewriteRule ^courses/([^/]*)$ controllers/coursescontroller.php?id=$1 [L]
 RewriteRule ^paymentmethods$ controllers/paymentmethodscontroller.php [L]
 RewriteRule ^paymentmethods/([^/]*)$ controllers/paymentmethodscontroller.php?id=$1 [L]
+RewriteRule ^instructors$ controllers/instructorscontroller.php [L]
+RewriteRule ^instructors/([^/]*)$ controllers/instructorscontroller.php?id=$1 [L]
 
 Options All -Indexes
 
