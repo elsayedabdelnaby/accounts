@@ -2,12 +2,12 @@
 <html lang="en" dir="rtl">
     <!-- BEGIN HEAD -->
     <head>
-        <?php require_once 'layout\head.php' ?>
+        <?php require_once 'layout/head.php' ?>
     </head>
     <!-- END HEAD -->
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
         <!-- BEGIN HEADER -->
-        <?php require_once 'layout\header.php' ?>
+        <?php require_once 'layout/header.php' ?>
         <!-- END HEADER -->
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
         <div class="clearfix"> </div>
@@ -19,7 +19,7 @@
                 <!-- END SIDEBAR -->
                 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                 <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                <?php require_once'layout\sidebar.php' ?>
+                <?php require_once'layout/sidebar.php' ?>
                 <!-- END SIDEBAR -->
             </div>
             <!-- END SIDEBAR -->
@@ -79,12 +79,12 @@
                                             </div>
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="total_hours" number="number" type="text" value="<?= @$_POST['total_hours'] ?>" autocomplete="off">
+                                                <input class="form-control" id="form_control_1" required="required" name="hours_number" number="number" type="text" value="<?= @$_POST['total_hours'] ?>" autocomplete="off">
                                                 <label for="form_control_1">عدد ساعات الكورس</label>
                                             </div>
                                             <div class="col-md-1"></div>
                                         </div>
-                                        <div class="form-body row">
+                                        <!--div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
                                                 <div class="input-group input-medium date date-picker" data-date="1-05-2017" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
@@ -111,29 +111,19 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div-->
                                         <div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="price" number="number" type="text" value="<?= @$_POST['price'] ?>" autocomplete="off">
-                                                <label for="form_control_1">السعر</label>
+                                                <textarea class="form-control" name="content" rows="3"><?= @$_POST['content'] ?></textarea>
+                                                <label for="form_control_1">محتوى الكورس</label>
                                             </div>
 
                                             <div class="col-md-1"></div>
 
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <select name='currency' class='form-control' id='currencyList'>
-                                                    <option value='0'>أختر</option>
-                                                    <?php
-                                                    foreach ($currencies as $currency) {
-                                                        ?>
-                                                        <option value="<?= $currency['id'] ?>"<?php if (@$_POST['currency'] == $currency['id']) { ?>selected<?php } ?>><?= $currency['name'] ?></option>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </select>
-                                                <span id="delivery-error" class="help-block help-block-error"></span>
-                                                <label for="form_control_1">العملة</label>
+                                                <textarea class="form-control" name="learning_objectives" rows="3"><?= @$_POST['learning_objectives'] ?></textarea>
+                                                <label for="form_control_1">اهداف التعلم</label>
                                             </div>
 
                                         </div>
@@ -141,24 +131,11 @@
                                         <div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <select name='branch' class='form-control' id='branchList' required="required">
-                                                    <option value='0'>أختر</option>
-                                                    <?php
-                                                    foreach ($branches as $branch) {
-                                                        ?>
-                                                        <option value="<?= $branch['id'] ?>"<?php if (@$_POST['branch'] == $branch['id']) { ?>selected<?php } ?>><?= $branch['name'] ?></option>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </select>
-                                                <span id="delivery-error" class="help-block help-block-error"></span>
-                                                <label for="form_control_1">الفرع</label>
+                                                <textarea class="form-control" name="notes" rows="3"><?= @$_POST['notes'] ?></textarea>
+                                                <label for="form_control_1">ملاحظات</label>
                                             </div>
                                             <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <textarea class="form-control" name="notes" rows="1"></textarea>
-                                                <label for="form_control_1">الملاحظات</label>
-                                            </div>
+
                                         </div>
                                         <div class="form-actions noborder">
                                             <input type="submit" class="btn blue submit-button" value="إضافة">
@@ -186,7 +163,7 @@
                                         </div>
                                         <div class="col-md-1"></div>
                                         <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <input class="form-control" id="form_control_1" required="required" name="total_hours" number="number" type="text" value="<?= $row['total_hours'] ?>" autocomplete="off">
+                                            <input class="form-control" id="form_control_1" required="required" name="hours_number" number="number" type="text" value="<?= $row['hours_number'] ?>" autocomplete="off">
                                             <label for="form_control_1">عدد ساعات الكورس</label>
                                         </div>
                                         <div class="col-md-1"></div>
@@ -194,53 +171,15 @@
                                     <div class="form-body row">
                                         <div class="col-md-1"></div>
                                         <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <div class="input-group input-medium date date-picker" data-date="1-05-2017" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                                <input type="text" class="form-control" readonly="" pmbx_context="02A42006-86E4-4E6A-A1AE-06E4DE932316" required="required" name="start_date" value="<?= $row['start_date'] ?>">
-                                                <span class="input-group-btn">
-                                                    <button class="btn default" type="button">
-                                                        <i class="fa fa-calendar"></i>
-                                                    </button>
-                                                </span>
-                                                <label for="form_control_1"> يبدأ فى</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-1"></div>
-                                        <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
-                                                <div class="input-group input-medium date date-picker" data-date="1-05-2017" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                                    <input type="text" class="form-control" readonly="" pmbx_context="02A42006-86E4-4E6A-A1AE-06E4DE932316" required="required" name="end_date" value="<?= $row['end_date'] ?>">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn default" type="button">
-                                                            <i class="fa fa-calendar"></i>
-                                                        </button>
-                                                    </span>
-                                                    <label for="form_control_1"> ينتهى فى</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-body row">
-                                        <div class="col-md-1"></div>
-                                        <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <input class="form-control" id="form_control_1" required="required" name="price" number="number" type="text" value="<?= $row['price'] ?>" autocomplete="off">
-                                            <label for="form_control_1">السعر</label>
+                                            <textarea class="form-control" name="content" rows="3"><?= $row['content'] ?></textarea>
+                                            <label for="form_control_1">محتوى الكورس</label>
                                         </div>
 
                                         <div class="col-md-1"></div>
 
                                         <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <select name='currency' class='form-control' id='currencyList'>
-                                                <option value='0'>أختر</option>
-                                                <?php
-                                                foreach ($currencies as $currency) {
-                                                    ?>
-                                                    <option value="<?= $currency['id'] ?>"<?php if ($row['currency_id'] == $currency['id']) { ?>selected<?php } ?>><?= $currency['name'] ?></option>
-                                                    <?php
-                                                }
-                                                ?>
-                                            </select>
-                                            <span id="delivery-error" class="help-block help-block-error"></span>
-                                            <label for="form_control_1">العملة</label>
+                                            <textarea class="form-control" name="learning_objectives" rows="3"><?= $row['learning_objectives'] ?></textarea>
+                                            <label for="form_control_1">اهداف التعلم</label>
                                         </div>
 
                                     </div>
@@ -248,24 +187,11 @@
                                     <div class="form-body row">
                                         <div class="col-md-1"></div>
                                         <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <select name='branch' class='form-control' id='branchList' required="required">
-                                                <option value='0'>أختر</option>
-                                                <?php
-                                                foreach ($branches as $branch) {
-                                                    ?>
-                                                    <option value="<?= $branch['id'] ?>"<?php if ($row['branch_id'] == $branch['id']) { ?>selected<?php } ?>><?= $branch['name'] ?></option>
-                                                    <?php
-                                                }
-                                                ?>
-                                            </select>
-                                            <span id="delivery-error" class="help-block help-block-error"></span>
-                                            <label for="form_control_1">الفرع</label>
+                                            <textarea class="form-control" name="notes" rows="3"><?= $row['notes'] ?></textarea>
+                                            <label for="form_control_1">ملاحظات</label>
                                         </div>
                                         <div class="col-md-1"></div>
-                                        <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <textarea class="form-control" name="notes" rows="1"><?= $row['notes'] ?></textarea>
-                                            <label for="form_control_1">الملاحظات</label>
-                                        </div>
+
                                     </div>
                                     <div class="form-actions noborder">
                                         <input type="submit" class="btn blue submit-button" value="تعديل">
@@ -293,12 +219,11 @@
                                             <tr>
                                                 <th> ألاسم </th>
                                                 <th> عدد الساعات </th>
-                                                <th> يبدأ فى </th>
-                                                <th> ينتهى فى </th>
-                                                <th> السعر </th>
-                                                <th>  العملة</th>
-                                                <th>  الفرع</th>
+                                                <th> المحتوى </th>
+                                                <th>  اهداف الكورس </th>
                                                 <th> الملاحظات </th>
+                                                <th> تم الانشاء ب</th>
+                                                <th>  تم التعديل ب</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -308,13 +233,12 @@
                                                     ?>
                                                     <tr>
                                                         <td><a href="<?= URL ?>courses/<?= $course['id'] ?>"><?= $course['name'] ?> </a></td>
-                                                        <td> <?= $course['total_hours'] ?> </td>
-                                                        <td> <?= $course['start_date'] ?> </td>
-                                                        <td> <?= $course['end_date'] ?> </td>
-                                                        <td> <?= $course['price'] ?> </td>
-                                                        <td> <?= $course['currency'] ?> </td>
-                                                        <td> <?= $course['branch'] ?> </td>
+                                                        <td> <?= $course['hours_number'] ?> </td>
+                                                        <td> <?= $course['content'] ?> </td>
+                                                        <td> <?= $course['learning_objectives'] ?> </td>
                                                         <td> <?= $course['notes'] ?> </td>
+                                                        <td> <?= $course['created_by'] ?> </td>
+                                                        <td> <?= $course['updated_by'] ?> </td>
                                                     </tr>
                                                     <?php
                                                 }

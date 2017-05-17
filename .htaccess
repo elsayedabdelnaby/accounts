@@ -1,6 +1,6 @@
 Options +FollowSymlinks
 RewriteEngine On
-RewriteBase /accounts
+RewriteBase /accounts/
 
 
 #RewriteRule ^api/areas/insert/([^/]*)/([^/]*)/([^/]*)/([^/]*)$ api/ara.php?action=$1&name_en=$2&name_ar=$3&rgn=$4 [L]
@@ -13,6 +13,8 @@ RewriteRule ^branches$ controllers/branchescontroller.php [L]
 RewriteRule ^branches/([^/]*)$ controllers/branchescontroller.php?id=$1 [L]
 RewriteRule ^countries$ controllers/countriescontroller.php [L]
 RewriteRule ^countries/([^/]*)$ controllers/countriescontroller.php?id=$1 [L]
+RewriteRule ^cities$ controllers/citiescontroller.php [L]
+RewriteRule ^cities/([^/]*)$ controllers/citescontroller.php?id=$1 [L]
 RewriteRule ^currencies$ controllers/currenciescontroller.php [L]
 RewriteRule ^currencies/([^/]*)$ controllers/currenciescontroller.php?id=$1 [L]
 RewriteRule ^courses$ controllers/coursescontroller.php [L]

@@ -5,7 +5,7 @@
     <!-- BEGIN HEAD -->
 
     <head>
-        <?php require_once'layout\head.php' ?>
+        <?php require_once'layout/head.php' ?>
     </head>
     <!-- END HEAD -->
 

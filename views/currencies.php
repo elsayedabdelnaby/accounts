@@ -2,12 +2,12 @@
 <html lang="en" dir="rtl">
     <!-- BEGIN HEAD -->
     <head>
-        <?php require_once 'layout\head.php' ?>
+        <?php require_once 'layout/head.php' ?>
     </head>
     <!-- END HEAD -->
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
         <!-- BEGIN HEADER -->
-        <?php require_once 'layout\header.php' ?>
+        <?php require_once 'layout/header.php' ?>
         <!-- END HEADER -->
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
         <div class="clearfix"> </div>
@@ -19,7 +19,7 @@
                 <!-- END SIDEBAR -->
                 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                 <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                <?php require_once'layout\sidebar.php' ?>
+                <?php require_once'layout/sidebar.php' ?>
                 <!-- END SIDEBAR -->
             </div>
             <!-- END SIDEBAR -->

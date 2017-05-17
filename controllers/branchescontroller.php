@@ -3,8 +3,6 @@
 require_once'../models/config.php';
 require_once'../models/Branch.php';
 
-$database = new Database('localhost', 'root', '', 'accounts');
-$conn = $database->get_connection();
 $branch = new Branch($conn);
 $branches = $branch->fetch_all();
 $success_msg = '';
