@@ -100,6 +100,11 @@
                         <span class="title">اضافة كورس جديد</span>
                     </a>
                 </li>
+                <li class="nav-item  ">
+                    <a href="<?= URL ?>coursesbranches" class="nav-link ">
+                        <span class="title">اضافة كورس الى الفرع</span>
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="nav-item  ">

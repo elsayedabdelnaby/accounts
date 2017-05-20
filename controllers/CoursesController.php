@@ -28,10 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $course_array = array();
 
     $course_array['name'] = $_POST['name'];
-//    $course_array['start_date'] = explode('-', $_POST['start_date']);
-//    $course_array['start_date'] = $course_array['start_date'][2] . '-' . $course_array['start_date'][1] . '-' . $course_array['start_date'][0];
-//    $course_array['end_date'] = explode('-', $_POST['end_date']);
-//    $course_array['end_date'] = $course_array['end_date'][2] . '-' . $course_array['end_date'][1] . '-' . $course_array['end_date'][0];
     $course_array['hours_number'] = $_POST['hours_number'];
     $course_array['content'] = $_POST['content'];
     $course_array['learning_objectives'] = $_POST['learning_objectives'];
@@ -54,12 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     } else {
         $form_type = 'insert';
         $row['created_by'] = $course_array['created_by'] = 1;
-//        if (strtotime($course_array['start_date']) >= strtotime($course_array['end_date'])) {
-//            $error_msg = 'تاريخ بداية الكورس يجب انو يكون اقل من تاريخ نهاية';
-//        } else if ($course->add($course_array)) {
-//            $success_msg = 'تم اضافة كورس جديد';
-//            $_POST = NULL;
-//        }
         if ($course->add($course_array)) {
             $success_msg = 'تم اضافة كورس جديد';
             $_POST = NULL;

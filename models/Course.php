@@ -13,7 +13,6 @@ class Course {
                 . ' meds_courses.hours_number,meds_courses.notes, creators.name as created_by, updators.name as updated_by '
                 . ' FROM meds_courses LEFT JOIN meds_users AS creators ON meds_courses.created_by = creators.id'
                 . ' LEFT JOIN meds_users AS updators ON meds_courses.updated_by = updators.id';
-        echo $query;
         $stmt = $this->conn->prepare($query);
         if ($stmt->execute()) {
             $courses = [];
