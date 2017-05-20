@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET['id'])) { // edit/update form
         $instructor_id = $_GET['id'];
         $form_type = 'update';
-        $row = $instructor->get(array('meds_instructor.id = ' => $instructor_id));
+        $row = $instructor->get(array('meds_instructors.id = ' => $instructor_id));
         if ($row == false) {
             $form_type = 'insert';
             $error_msg = 'هذا المحاضر غير موجود';
@@ -55,9 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $row['id'] = $instructor_array['id'] = $_GET['id'];
         $address_array['id'] = $instructor->get_address($instructor_array['id'])['id'];
         $form_type = 'update';
-        if ($instructor->get(array('meds_instructor.id <> ' => $instructor_array['id'], 'meds_instructor.phone = ' => $instructor_array['phone']))) {
+        if ($instructor->get(array('meds_instructors.id <> ' => $instructor_array['id'], 'meds_instructors.phone = ' => $instructor_array['phone']))) {
             $error_msg = 'خطأ رقم التليفون موجود مسبقا';
-        } elseif ($instructor->get(array('meds_instructor.id <> ' => $instructor_array['id'], 'meds_instructor.mobile = ' => $instructor_array['mobile']))) {
+        } elseif ($instructor->get(array('meds_instructors.id <> ' => $instructor_array['id'], 'meds_instructors.mobile = ' => $instructor_array['mobile']))) {
             $error_msg = 'خطأ رقم الموبايل موجود مسبقا';
         } else {
             if ($address->update($address_array) || $instructor->update($instructor_array)) {
@@ -72,14 +72,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $error_msg = '';
     } else {
         $form_type = 'insert';
-        if ($instructor->get(array('meds_instructor.phone = ' => $instructor_array['phone']))) {
+        if ($instructor->get(array('meds_instructors.phone = ' => $instructor_array['phone']))) {
             $error_msg = 'خطأ رقم التليفون موجود مسبقا';
-        } elseif ($instructor->get(array('meds_instructor.mobile = ' => $instructor_array['mobile']))) {
+        } elseif ($instructor->get(array('meds_instructors.mobile = ' => $instructor_array['mobile']))) {
             $error_msg = 'خطأ رقم الموبايل موجود مسبقا';
         } else {
             $instructor_array['address_id'] = $address->add($address_array); // add address first, before add the instructor
             if ($instructor->add($instructor_array)) {
-                $success_msg = 'تم اضافة طالب جديد';
+                $success_msg = 'تم اضافة محاضر جديد';
                 $_POST = NULL;
             }
         }

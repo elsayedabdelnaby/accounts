@@ -9,13 +9,13 @@ class Instructor {
     }
 
     public function fetch_all() {
-        $query = 'SELECT meds_instructor.id, meds_instructor.name, meds_instructor.phone, meds_instructor.mobile, meds_instructor.email, meds_instructor.description,'
+        $query = 'SELECT meds_instructors.id, meds_instructors.name, meds_instructors.phone, meds_instructors.mobile, meds_instructors.email, meds_instructors.description,'
                 . ' meds_countries.name AS country, meds_countries.id AS country_id,'
                 . ' meds_cities.name as city, meds_cities.id as city_id,'
-                . ' meds_addresses.street FROM meds_instructor'
-                . ' INNER JOIN meds_addresses ON meds_instructor.address_id = meds_addresses.id'
+                . ' meds_addresses.street FROM meds_instructors'
+                . ' INNER JOIN meds_addresses ON meds_instructors.address_id = meds_addresses.id'
                 . ' INNER JOIN meds_countries ON meds_addresses.country_id = meds_countries.id'
-                . ' INNER JOIN meds_cities ON meds_addresses.city_id = meds_cities.id';
+                . ' LEFT JOIN meds_cities ON meds_addresses.city_id = meds_cities.id';
         $stmt = $this->conn->prepare($query);
         if ($stmt->execute()) {
             $instructors = [];
@@ -30,7 +30,7 @@ class Instructor {
 
     public function add($instructor) { // take instructor(associative array) array hold all data you will insert it
         // prepare sql and bind parameters
-        $stmt = $this->conn->prepare('INSERT INTO meds_instructor (name, phone, mobile, email, description, address_id) 
+        $stmt = $this->conn->prepare('INSERT INTO meds_instructors (name, phone, mobile, email, description, address_id) 
         VALUES (:name, :phone, :mobile, :email, :description, :address_id)');
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':phone', $phone);
@@ -53,14 +53,14 @@ class Instructor {
     }
 
     public function get($conditions) {
-        $query = 'SELECT meds_instructor.id, meds_instructor.name, meds_instructor.phone,'
-                . ' meds_instructor.mobile, meds_instructor.email, meds_instructor.description, meds_instructor.address_id,'
+        $query = 'SELECT meds_instructors.id, meds_instructors.name, meds_instructors.phone,'
+                . ' meds_instructors.mobile, meds_instructors.email, meds_instructors.description, meds_instructors.address_id,'
                 . ' meds_countries.name AS country, meds_countries.id AS country_id,'
                 . ' meds_cities.name as city, meds_cities.id as city_id,'
-                . ' meds_addresses.street FROM meds_instructor'
-                . ' INNER JOIN meds_addresses on meds_instructor.address_id = meds_addresses.id'
+                . ' meds_addresses.street FROM meds_instructors'
+                . ' INNER JOIN meds_addresses on meds_instructors.address_id = meds_addresses.id'
                 . ' INNER JOIN meds_countries ON meds_addresses.country_id = meds_countries.id'
-                . ' INNER JOIN meds_cities ON meds_addresses.city_id = meds_cities.id WHERE ';
+                . ' LEFT JOIN meds_cities ON meds_addresses.city_id = meds_cities.id WHERE ';
         if (!empty($conditions)) {
             $count = 0;
             foreach ($conditions as $key => $value) {
@@ -82,7 +82,7 @@ class Instructor {
     }
 
     public function get_address($instructor_id) {
-        $stmt = $this->conn->prepare('SELECT * FROM meds_instructor INNER JOIN meds_addresses ON meds_instructor.address_id = meds_addresses.id WHERE meds_instructor.id = ?');
+        $stmt = $this->conn->prepare('SELECT * FROM meds_instructors INNER JOIN meds_addresses ON meds_instructors.address_id = meds_addresses.id WHERE meds_instructors.id = ?');
         $stmt->bindParam(1, $instructor_id, PDO::PARAM_INT);
         if ($stmt->execute()) {
             return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -92,7 +92,7 @@ class Instructor {
     }
 
     public function update($instructor) {
-        $query = 'UPDATE meds_instructor SET name = ?, phone = ?, mobile = ?, email = ?, description = ? WHERE id = ?';
+        $query = 'UPDATE meds_instructors SET name = ?, phone = ?, mobile = ?, email = ?, description = ? WHERE id = ?';
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $instructor['name'], PDO::PARAM_STR);
         $stmt->bindParam(2, $instructor['phone'], PDO::PARAM_STR);

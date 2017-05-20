@@ -34,20 +34,6 @@
         </li>
         <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="icon-diamond"></i>
-                <span class="title">الطلبة</span>
-                <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="<?= URL ?>students" class="nav-link ">
-                        <span class="title">اضافة طالب</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="icon-puzzle"></i>
                 <span class="title">الافرع</span>
                 <span class="arrow"></span>
@@ -74,6 +60,7 @@
                 </li>
             </ul>
         </li>
+        
         <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="icon-bulb"></i>
@@ -84,6 +71,53 @@
                 <li class="nav-item  ">
                     <a href="<?= URL ?>currencies" class="nav-link ">
                         <span class="title">اضافة عملة جديدة</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item  ">
+            <a href="?p=" class="nav-link nav-toggle">
+                <i class="icon-wallet"></i>
+                <span class="title">طرق السداد</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="<?= URL ?>paymentmethods" class="nav-link ">
+                        <span class="title">اضافة طريقة سداد</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-pointer"></i>
+                <span class="title">الموردين\المعامل</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="<?= URL ?>vendors" class="nav-link ">
+                        <span class="title">اضافة مورد\معمل</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="maps_vector.html" class="nav-link ">
+                        <span class="title">Vector Maps</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="<?= URL ?>instructors" class="nav-link nav-toggle">
+                <i class="icon-bar-chart"></i>
+                <span class="title">المحاضرين</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="<?= URL ?>instructors" class="nav-link ">
+                        <span class="title">اضافة محاضر جديد</span>
                     </a>
                 </li>
             </ul>
@@ -108,52 +142,20 @@
             </ul>
         </li>
         <li class="nav-item  ">
-            <a href="?p=" class="nav-link nav-toggle">
-                <i class="icon-wallet"></i>
-                <span class="title">طرق السداد</span>
-                <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="<?= URL ?>paymentmethods" class="nav-link ">
-                        <span class="title">اضافة طريقة سداد</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item  ">
-            <a href="<?= URL ?>instructors" class="nav-link nav-toggle">
-                <i class="icon-bar-chart"></i>
-                <span class="title">المحاضرين</span>
-                <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="<?= URL ?>instructors" class="nav-link ">
-                        <span class="title">اضافة محاضر جديد</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="icon-pointer"></i>
-                <span class="title">Maps</span>
+                <i class="icon-diamond"></i>
+                <span class="title">الطلبة</span>
                 <span class="arrow"></span>
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="maps_google.html" class="nav-link ">
-                        <span class="title">Google Maps</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="maps_vector.html" class="nav-link ">
-                        <span class="title">Vector Maps</span>
+                    <a href="<?= URL ?>students" class="nav-link ">
+                        <span class="title">اضافة طالب</span>
                     </a>
                 </li>
             </ul>
         </li>
+        
         <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="icon-layers"></i>

@@ -9,7 +9,7 @@ class Student {
     }
 
     public function fetch_all() {
-        $query = 'SELECT meds_students.id, meds_students.name, meds_students.phone, meds_students.mobile, meds_students.balance, meds_students.notes,'
+        $query = 'SELECT meds_students.id, meds_students.name, meds_students.phone, meds_students.mobile, meds_students.notes,'
                 . ' meds_branches.name as branch, meds_branches.id as branch_id,'
                 . ' meds_countries.name AS country, meds_countries.id AS country_id,'
                 . ' meds_cities.name as city, meds_cities.id as city_id,'
@@ -58,7 +58,7 @@ class Student {
 
     public function get($conditions) {
         $query = 'SELECT meds_students.id, meds_students.name, meds_students.phone,'
-                . ' meds_students.mobile, meds_students.balance, meds_students.notes, meds_students.address_id,'
+                . ' meds_students.mobile, meds_students.notes, meds_students.address_id,'
                 . ' meds_branches.name as branch, meds_branches.id as branch_id,'
                 . ' meds_countries.name AS country, meds_countries.id AS country_id,'
                 . ' meds_cities.name as city, meds_cities.id as city_id,'

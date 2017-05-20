@@ -276,7 +276,6 @@
                                                 <th> ألاسم </th>
                                                 <th> التليفون </th>
                                                 <th> الموبايل </th>
-                                                <th> الرصيد </th>
                                                 <th> الفرع </th>
                                                 <th>  الدولة</th>
                                                 <th>  المدينة</th>
@@ -293,7 +292,6 @@
                                                         <td><a href="<?= URL ?>students/<?= $student['id'] ?>"><?= $student['name'] ?> </a></td>
                                                         <td> <?= $student['phone'] ?> </td>
                                                         <td> <?= $student['mobile'] ?> </td>
-                                                        <td> <?= $student['balance'] ?> </td>
                                                         <td> <?= $student['branch'] ?> </td>
                                                         <td> <?= $student['country'] ?> </td>
                                                         <td> <?= $student['city'] ?> </td>

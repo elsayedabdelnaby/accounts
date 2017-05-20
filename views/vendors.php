@@ -31,7 +31,7 @@
                     <!-- BEGIN THEME PANEL -->
                     <?php //require_once'layout\theme_panel.php' ?>
                     <!-- END THEME PANEL -->
-                    <h1 class="page-title"> المحاضرين
+                    <h1 class="page-title">  الموردين\المعامل
                         <small></small>
                     </h1>
                     <div class="page-bar">
@@ -39,7 +39,7 @@
                             <li>
                                 <i class="icon-home"></i>
                                 <a href="../views/home.php">الرئسية</a>
-                                <i class="fa fa-angle-right">المحاضرين</i>
+                                <i class="fa">> الموردين\المعامل</i>
                             </li>
                             <li>
                                 <span></span>
@@ -66,11 +66,11 @@
                                 <div class="portlet-title">
                                     <div class="caption font-green">
                                         <i class="icon-pin font-green"></i>
-                                        <span class="caption-subject bold">أضافة محاضر جديد</span>
+                                        <span class="caption-subject bold">اضافة مورد\معمل</span>
                                     </div>
                                 </div>
                                 <div class="portlet-body form">
-                                    <form method="POST" action="<?= URL ?>instructors" accept-charset="UTF-8" role="form" novalidate="novalidate">
+                                    <form method="POST" action="<?= URL ?>vendors" accept-charset="UTF-8" role="form" novalidate="novalidate">
                                         <div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
@@ -110,7 +110,7 @@
                                         <div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <select name='city' class='form-control' id='cityList' required="required">
+                                                <select name='city' class='form-control' id='cityList'>
                                                     <option value='0'>أختر</option>
                                                     <?php
                                                     foreach ($cities as $city) {
@@ -125,8 +125,13 @@
                                             </div>
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="email" type="email" value="<?= @$_POST['email'] ?>" autocomplete="off">
-                                                <label for="form_control_1">الايميل</label>
+                                                <select name='type' class='form-control' id='typeList' required="required">
+                                                    <option value='0'>أختر</option>
+                                                    <option value="معمل"<?php if (@$_POST['type'] == 'معمل') { ?>selected<?php } ?>>معمل</option>
+                                                    <option value="مورد"<?php if (@$_POST['type'] == 'مورد') { ?>selected<?php } ?>>مورد</option>
+                                                </select>
+                                                <span id="delivery-error" class="help-block help-block-error"></span>
+                                                <label for="form_control_1">النوع</label>
                                             </div>
                                         </div>
                                         <div class="form-body row">
@@ -137,7 +142,7 @@
                                             </div>
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <textarea class="form-control" name="description" rows="1"></textarea>
+                                                <textarea class="form-control" name="notes" rows="1"><?= @$_POST['notes'] ?></textarea>
                                                 <label for="form_control_1">الملاحظات</label>
                                             </div>
                                         </div>
@@ -158,7 +163,7 @@
                                 </div>
                             </div>
                             <div class="portlet-body form">
-                                    <form method="POST" action="<?= URL ?>instructors/<?= $row['id'] ?>" accept-charset="UTF-8" role="form" novalidate="novalidate">
+                                    <form method="POST" action="<?= URL ?>vendors/<?= $row['id'] ?>" accept-charset="UTF-8" role="form" novalidate="novalidate">
                                         <div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
@@ -198,7 +203,7 @@
                                         <div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <select name='city' class='form-control' id='cityList' required="required">
+                                                <select name='city' class='form-control' id='cityList'>
                                                     <option value='0'>أختر</option>
                                                     <?php
                                                     foreach ($cities as $city) {
@@ -213,8 +218,13 @@
                                             </div>
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="email" type="email" value="<?= $row['email'] ?>" autocomplete="off">
-                                                <label for="form_control_1">الايميل</label>
+                                                <select name='type' class='form-control' id='typeList' required="required">
+                                                    <option value='0'>أختر</option>
+                                                    <option value="معمل"<?php if ($row['type'] == 'معمل') { ?>selected<?php } ?>>معمل</option>
+                                                    <option value="مورد"<?php if ($row['type'] == 'مورد') { ?>selected<?php } ?>>مورد</option>
+                                                </select>
+                                                <span id="delivery-error" class="help-block help-block-error"></span>
+                                                <label for="form_control_1">النوع</label>
                                             </div>
                                         </div>
                                         <div class="form-body row">
@@ -225,7 +235,7 @@
                                             </div>
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <textarea class="form-control" name="description" rows="1"><?= $row['description'] ?></textarea>
+                                                <textarea class="form-control" name="notes" rows="1"><?= $row['notes'] ?></textarea>
                                                 <label for="form_control_1">الملاحظات</label>
                                             </div>
                                         </div>
@@ -246,7 +256,7 @@
                             <div class="portlet box green">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-globe"></i>الطلبة </div>
+                                        <i class="fa fa-globe"></i>الموردين\المعامل </div>
                                     <div class="tools"> </div>
                                 </div>
                                 <div class="portlet-body">
@@ -256,7 +266,7 @@
                                                 <th> ألاسم </th>
                                                 <th> التليفون </th>
                                                 <th> الموبايل </th>
-                                                <th> الايميل </th>
+                                                <th> النوع </th>
                                                 <th>  الدولة</th>
                                                 <th>  المدينة</th>
                                                 <th> الشارع </th>
@@ -265,18 +275,18 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                            if ($instructors) {
-                                                foreach ($instructors as $instructor) {
+                                            if ($vendors) {
+                                                foreach ($vendors as $vendor) {
                                                     ?>
                                                     <tr>
-                                                        <td><a href="<?= URL ?>instructors/<?= $instructor['id'] ?>"><?= $instructor['name'] ?> </a></td>
-                                                        <td> <?= $instructor['phone'] ?> </td>
-                                                        <td> <?= $instructor['mobile'] ?> </td>
-                                                        <td> <?= $instructor['email'] ?> </td>
-                                                        <td> <?= $instructor['country'] ?> </td>
-                                                        <td> <?= $instructor['city'] ?> </td>
-                                                        <td> <?= $instructor['street'] ?> </td>
-                                                        <td> <?= $instructor['description'] ?> </td>
+                                                        <td><a href="<?= URL ?>vendors/<?= $vendor['id'] ?>"><?= $vendor['name'] ?> </a></td>
+                                                        <td> <?= $vendor['phone'] ?> </td>
+                                                        <td> <?= $vendor['mobile'] ?> </td>
+                                                        <td> <?= $vendor['type'] ?> </td>
+                                                        <td> <?= $vendor['country'] ?> </td>
+                                                        <td> <?= $vendor['city'] ?> </td>
+                                                        <td> <?= $vendor['street'] ?> </td>
+                                                        <td> <?= $vendor['notes'] ?> </td>
                                                     </tr>
                                                     <?php
                                                 }
