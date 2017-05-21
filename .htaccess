@@ -27,6 +27,8 @@ RewriteRule ^paymentmethods$ controllers/PaymentmethodsController.php [L]
 RewriteRule ^paymentmethods/([^/]*)$ controllers/PaymentmethodsController.php?id=$1 [L]
 RewriteRule ^instructors$ controllers/InstructorsController.php [L]
 RewriteRule ^instructors/([^/]*)$ controllers/InstructorsController.php?id=$1 [L]
+RewriteRule ^services$ controllers/ServicesController.php [L]
+RewriteRule ^services/([^/]*)$ controllers/ServicesController.php?id=$1 [L]
 
 Options All -Indexes
 

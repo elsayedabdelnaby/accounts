@@ -4,13 +4,16 @@ require_once '../models/config.php';
 require_once '../models/Course.php';
 require_once '../models/Branch.php';
 require_once '../models/CourseBranch.php';
+require_once '../models/Instructor.php';
 
 $course = new Course($conn);
 $branch = new Branch($conn);
 $course_branch = new CourseBranch($conn);
+$instructor = new Instructor($conn);
 $courses = $course->fetch_all();
 $branches = $branch->fetch_all();
 $courses_branches = $course_branch->fetch_all();
+$instructors = $instructor->fetch_all();
 
 $success_msg = '';
 $error_msg = '';
@@ -45,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $course_branch_array['end_date'] = $course_branch_array['end_date'][2] . '-' . $course_branch_array['end_date'][1] . '-' . $course_branch_array['end_date'][0];
     $course_branch_array['lectures_number'] = $_POST['lectures_number'];
     $course_branch_array['price'] = $_POST['price'];
+    $course_branch_array['instructor_id'] = $_POST['instructors'];
     $course_branch_array['currency_id'] = 1;
 
     $row = $course_branch_array;

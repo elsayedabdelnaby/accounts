@@ -33,13 +33,12 @@ class Vendor {
         // prepare sql and bind parameters
         $stmt = $this->conn->prepare('INSERT INTO meds_vendors (name, phone, mobile, created_by, notes, type, address_id) 
         VALUES (:name, :phone, :mobile, :created_by, :notes, :type, :address_id)');
-        print_r($vendor);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':phone', $phone);
         $stmt->bindParam(':mobile', $mobile);
         $stmt->bindParam(':notes', $notes);
         $stmt->bindParam(':type', $type);
-        $stmt->bindParam(':created_by', $created_at);
+        $stmt->bindParam(':created_by', $created_by);
         $stmt->bindParam(':address_id', $address_id);
         // insert a row
         $name = $vendor['name'];
@@ -47,7 +46,7 @@ class Vendor {
         $mobile = $vendor['mobile'];
         $notes = $vendor['notes'];
         $type = $vendor['type'];
-        $created_at = $vendor['created_by'];
+        $created_by = $vendor['created_by'];
         $address_id = $vendor['address_id'];
         if ($stmt->execute()) {
             return $this->conn->lastInsertId();

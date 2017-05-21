@@ -31,15 +31,15 @@
                     <!-- BEGIN THEME PANEL -->
                     <?php //require_once'layout\theme_panel.php' ?>
                     <!-- END THEME PANEL -->
-                    <h1 class="page-title"> الكورسات والافرع
+                    <h1 class="page-title"> الطلبات\الخدمات
                         <small></small>
                     </h1>
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
                             <li>
                                 <i class="icon-home"></i>
-                                <a href="../views/home.php">الرئسية ></a>
-                                <i class="fa">الكورسات والافرع</i>
+                                <a href="../views/home.php">الرئسية</a>
+                                <i class="fa">> الطلبات\الخدمات</i>
                             </li>
                             <li>
                                 <span></span>
@@ -66,35 +66,70 @@
                                 <div class="portlet-title">
                                     <div class="caption font-green">
                                         <i class="icon-pin font-green"></i>
-                                        <span class="caption-subject bold">أضافة كورس على فرع</span>
+                                        <span class="caption-subject bold">اضافة طلب\خدمة</span>
                                     </div>
                                 </div>
                                 <div class="portlet-body form">
-                                    <form method="POST" action="<?= URL ?>coursesbranches" accept-charset="UTF-8" role="form" novalidate="novalidate">
+                                    <form method="POST" action="<?= URL ?>services" accept-charset="UTF-8" role="form" novalidate="novalidate">
                                         <div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <select name='courses' class='form-control' id='coursesList' required="required">
+                                                <input class="form-control" id="form_control_1" required="required" name="service_name" type="text" value="<?= @$_POST['name'] ?>" autocomplete="off">
+                                                <label for="form_control_1">اسم الخدمة\الطلب</label>
+                                            </div>
+                                            <div class="col-md-1"></div>
+                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
+                                                <select name='vendors' class='form-control' id='vendorsList' required="required">
                                                     <option value='0'>أختر</option>
                                                     <?php
-                                                    foreach ($courses as $course) {
+                                                    foreach ($vendors as $vendor) {
                                                         ?>
-                                                        <option value="<?= $course['id'] ?>" <?php if (@$_POST['courses'] == $course['id']) { ?>selected<?php } ?>><?= $course['name'] ?></option>
+                                                        <option value="<?= $vendor['id'] ?>" <?php if (@$_POST['vendors'] == $vendor['id']) { ?>selected<?php } ?>><?= $vendor['name'] ?></option>
                                                         <?php
                                                     }
                                                     ?>
                                                 </select>
                                                 <span id="delivery-error" class="help-block help-block-error"></span>
-                                                <label for="form_control_1">الكورس</label>
+                                                <label for="form_control_1">المورد</label>
+                                            </div>
+                                            <div class="col-md-1"></div>
+                                        </div>
+                                        <div class="form-body row">
+                                            <div class="col-md-1"></div>
+                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
+                                                <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                                    <div class="input-group input-medium date date-picker" data-date="1-05-2017" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                                                        <input type="text" class="form-control" readonly="" pmbx_context="02A42006-86E4-4E6A-A1AE-06E4DE932316" required="required" name="request_date" value="<?= @$_POST['end_date'] ?>">
+                                                        <span class="input-group-btn">
+                                                            <button class="btn default" type="button">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </button>
+                                                        </span>
+                                                        <label for="form_control_1"> تاريخ طلب الخدمة</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-1"></div>
+                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
+                                                <input class="form-control" id="form_control_1" required="required" name="quantity" number="number" type="text" value="<?= @$_POST['quantity'] ?>" autocomplete="off">
+                                                <label for="form_control_1">الكمية</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-body row">
+                                            <div class="col-md-1"></div>
+                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
+                                                <input class="form-control" id="form_control_1" required="required" name="unit_price" number="number" type="text" value="<?= @$_POST['unit_price'] ?>" autocomplete="off">
+                                                <label for="form_control_1">سعر الوحدة</label>
                                             </div>
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <select name='branches' class='form-control' id='countryList' required="required">
+                                                <select name='branches' class='form-control' id='branchesList'>
                                                     <option value='0'>أختر</option>
                                                     <?php
                                                     foreach ($branches as $branch) {
                                                         ?>
-                                                        <option value="<?= $branch['id'] ?>" <?php if (@$_POST['branches'] == $branch['id']) { ?>selected<?php } ?>><?= $branch['name'] ?></option>
+                                                        <option value="<?= $branch['id'] ?>"<?php if (@$_POST['branches'] == $branch['id']) { ?>selected<?php } ?>><?= $branch['name'] ?></option>
                                                         <?php
                                                     }
                                                     ?>
@@ -102,67 +137,15 @@
                                                 <span id="delivery-error" class="help-block help-block-error"></span>
                                                 <label for="form_control_1">الفرع</label>
                                             </div>
-                                            <div class="col-md-1"></div>
                                         </div>
                                         <div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <div class="input-group input-medium date date-picker" data-date="1-05-2017" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                                    <input type="text" class="form-control" readonly="" pmbx_context="02A42006-86E4-4E6A-A1AE-06E4DE932316" required="required" name="start_date" value="<?= @$_POST['start_date'] ?>">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn default" type="button">
-                                                            <i class="fa fa-calendar"></i>
-                                                        </button>
-                                                    </span>
-                                                    <label for="form_control_1"> يبدأ فى</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
-                                                    <div class="input-group input-medium date date-picker" data-date="1-05-2017" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                                        <input type="text" class="form-control" readonly="" pmbx_context="02A42006-86E4-4E6A-A1AE-06E4DE932316" required="required" name="end_date" value="<?= @$_POST['end_date'] ?>">
-                                                        <span class="input-group-btn">
-                                                            <button class="btn default" type="button">
-                                                                <i class="fa fa-calendar"></i>
-                                                            </button>
-                                                        </span>
-                                                        <label for="form_control_1"> ينتهى فى</label>
-                                                    </div>
-                                                </div>
+                                                <textarea class="form-control" name="notes" rows="1"><?=@$_POST['notes'] ?></textarea>
+                                                <label for="form_control_1">الملاحظات</label>
                                             </div>
                                         </div>
-                                        <div class="form-body row">
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <select name='instructors' class='form-control' id='instructorsList' required="required">
-                                                    <option value='0'>أختر</option>
-                                                    <?php
-                                                    foreach ($instructors as $instructor) {
-                                                        ?>
-                                                        <option value="<?= $instructor['id'] ?>" <?php if (@$_POST['instructors'] == $instructor['id']) { ?>selected<?php } ?>><?= $instructor['name'] ?></option>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </select>
-                                                <span id="delivery-error" class="help-block help-block-error"></span>
-                                                <label for="form_control_1">المحاضر</label>
-                                            </div>
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="lectures_number" type="text" value="<?= @$_POST['lectures_number'] ?>" autocomplete="off" number="number">
-                                                <label for="form_control_1">عدد المحاضرات</label>
-                                            </div>
-
-                                        </div>
-                                        <div class="form-body row">
-                                            <div class="col-md-1"></div>
-
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="price" type="text" value="<?= @$_POST['price'] ?>" autocomplete="off" number="number">
-                                                <label for="form_control_1">السعر </label>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="form-actions noborder">
                                             <input type="submit" class="btn blue submit-button" value="إضافة">
                                             <button type="reset" class="btn default" style="margin-right:9px;">إلغاء</button>
@@ -176,99 +159,84 @@
                             <div class="portlet-title">
                                 <div class="caption font-green">
                                     <i class="icon-pin font-green"></i>
-                                    <span class="caption-subject bold">تعديل بيانات الكورس مع الفرع</span>
+                                    <span class="caption-subject bold">تعديل بيانات الطالب</span>
                                 </div>
                             </div>
                             <div class="portlet-body form">
-                                <form method="POST" action="<?= URL ?>coursesbranches/<?= $row['id'] ?>" accept-charset="UTF-8" role="form" novalidate="novalidate">
+                                <form method="POST" action="<?= URL ?>vendors/<?= $row['id'] ?>" accept-charset="UTF-8" role="form" novalidate="novalidate">
                                     <div class="form-body row">
                                         <div class="col-md-1"></div>
                                         <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <select name='courses' class='form-control' id='coursesList' required="required">
-                                                <option value='0'>أختر</option>
-                                                <?php
-                                                foreach ($courses as $course) {
-                                                    ?>
-                                                    <option value="<?= $course['id'] ?>" <?php if ($row['course_id'] == $course['id']) { ?>selected<?php } ?>><?= $course['name'] ?></option>
-                                                    <?php
-                                                }
-                                                ?>
-                                            </select>
-                                            <span id="delivery-error" class="help-block help-block-error"></span>
-                                            <label for="form_control_1">الكورس</label>
+                                            <input class="form-control" id="form_control_1" required="required" name="name" type="text" value="<?= $row['name'] ?>" autocomplete="off">
+                                            <label for="form_control_1">ألاسم</label>
                                         </div>
                                         <div class="col-md-1"></div>
                                         <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <select name='branches' class='form-control' id='countryList' required="required">
-                                                <option value='0'>أختر</option>
-                                                <?php
-                                                foreach ($branches as $branch) {
-                                                    ?>
-                                                    <option value="<?= $branch['id'] ?>" <?php if ($row['branch_id'] == $branch['id']) { ?>selected<?php } ?>><?= $branch['name'] ?></option>
-                                                    <?php
-                                                }
-                                                ?>
-                                            </select>
-                                            <span id="delivery-error" class="help-block help-block-error"></span>
-                                            <label for="form_control_1">الفرع</label>
+                                            <input class="form-control" id="form_control_1" required="required" name="phone" number="phone" type="text" value="<?= $row['phone'] ?>" autocomplete="off">
+                                            <label for="form_control_1">التليفون</label>
                                         </div>
                                         <div class="col-md-1"></div>
                                     </div>
                                     <div class="form-body row">
                                         <div class="col-md-1"></div>
                                         <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <div class="input-group input-medium date date-picker" data-date="<?= $row['start_date'] ?>" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                                <input type="text" class="form-control" readonly="" pmbx_context="02A42006-86E4-4E6A-A1AE-06E4DE932316" required="required" name="start_date" value="<?= $row['start_date'] ?>">
-                                                <span class="input-group-btn">
-                                                    <button class="btn default" type="button">
-                                                        <i class="fa fa-calendar"></i>
-                                                    </button>
-                                                </span>
-                                                <label for="form_control_1"> يبدأ فى</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-1"></div>
-                                        <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
-                                                <div class="input-group input-medium date date-picker" data-date="<?= $row['end_date'] ?>" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                                    <input type="text" class="form-control" readonly="" pmbx_context="02A42006-86E4-4E6A-A1AE-06E4DE932316" required="required" name="end_date" value="<?= $row['end_date'] ?>">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn default" type="button">
-                                                            <i class="fa fa-calendar"></i>
-                                                        </button>
-                                                    </span>
-                                                    <label for="form_control_1"> ينتهى فى</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-body row">
-                                        <div class="col-md-1"></div>
-                                        <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <select name='instructors' class='form-control' id='instructorsList' required="required">
+                                            <select name='country' class='form-control' id='countryList' required="required">
                                                 <option value='0'>أختر</option>
                                                 <?php
-                                                foreach ($instructors as $instructor) {
+                                                foreach ($countries as $country) {
                                                     ?>
-                                                    <option value="<?= $instructor['id'] ?>" <?php if ($row['instructor_id'] == $instructor['id']) { ?>selected<?php } ?>><?= $instructor['name'] ?></option>
+                                                    <option value="<?= $country['id'] ?>" <?php if ($row['country_id'] == $country['id']) { ?>selected<?php } ?>><?= $country['name'] ?></option>
                                                     <?php
                                                 }
                                                 ?>
                                             </select>
                                             <span id="delivery-error" class="help-block help-block-error"></span>
-                                            <label for="form_control_1">المحاضر</label>
+                                            <label for="form_control_1">الدولة</label>
                                         </div>
+
                                         <div class="col-md-1"></div>
                                         <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <input class="form-control" id="form_control_1" required="required" name="lectures_number" type="text" value="<?= $row['lectures_number'] ?>" autocomplete="off" number="number">
-                                            <label for="form_control_1">عدد المحاضرات</label>
+                                            <input class="form-control" id="form_control_1" required="required" name="mobile" number="phone" type="text" value="<?= $row['mobile'] ?>" autocomplete="off">
+                                            <label for="form_control_1">الموبايل</label>
                                         </div>
                                     </div>
                                     <div class="form-body row">
                                         <div class="col-md-1"></div>
                                         <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <input class="form-control" id="form_control_1" required="required" name="price" type="text" value="<?= $row['price'] ?>" autocomplete="off" number="number">
-                                            <label for="form_control_1">السعر </label>
+                                            <select name='city' class='form-control' id='cityList'>
+                                                <option value='0'>أختر</option>
+                                                <?php
+                                                foreach ($cities as $city) {
+                                                    ?>
+                                                    <option value="<?= $city['id'] ?>"<?php if ($row['city_id'] == $city['id']) { ?>selected<?php } ?>><?= $city['name'] ?></option>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select>
+                                            <span id="delivery-error" class="help-block help-block-error"></span>
+                                            <label for="form_control_1">المدينة</label>
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                        <div class="form-group form-md-line-input form-md-floating-label col-md-4">
+                                            <select name='type' class='form-control' id='typeList' required="required">
+                                                <option value='0'>أختر</option>
+                                                <option value="معمل"<?php if ($row['type'] == 'معمل') { ?>selected<?php } ?>>معمل</option>
+                                                <option value="مورد"<?php if ($row['type'] == 'مورد') { ?>selected<?php } ?>>مورد</option>
+                                            </select>
+                                            <span id="delivery-error" class="help-block help-block-error"></span>
+                                            <label for="form_control_1">النوع</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-body row">
+                                        <div class="col-md-1"></div>
+                                        <div class="form-group form-md-line-input form-md-floating-label col-md-4">
+                                            <input class="form-control" id="form_control_1" name="street" type="text" value="<?= $row['street'] ?>" autocomplete="off">
+                                            <label for="form_control_1">الشارع</label>
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                        <div class="form-group form-md-line-input form-md-floating-label col-md-4">
+                                            <textarea class="form-control" name="notes" rows="1"><?= $row['notes'] ?></textarea>
+                                            <label for="form_control_1">الملاحظات</label>
                                         </div>
                                     </div>
                                     <div class="form-actions noborder">
@@ -288,41 +256,39 @@
                             <div class="portlet box green">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-globe"></i>الطلبة </div>
+                                        <i class="fa fa-globe"></i>الموردين\المعامل </div>
                                     <div class="tools"> </div>
                                 </div>
                                 <div class="portlet-body">
                                     <table class="table table-striped table-bordered table-hover" id="sample_2">
                                         <thead>
                                             <tr>
-                                                <th></th>
-                                                <th> الكورس </th>
-                                                <th> الفرع </th>
-                                                <th> المحاضر </th>
-                                                <th> يبدأ فى </th>
-                                                <th> ينتهى فى  </th>
-                                                <th> عدد المحاضرات </th>
-                                                <th> السعر</th>
-                                                <th> تم الانشاء ب</th>
-                                                <th> تم التعديل ب</th>
+                                                <th>   الفرع</th>
+                                                <th> المورد </th>
+                                                <th> الخدمة </th>
+                                                <th> التاريخ </th>
+                                                <th>  الكمية</th>
+                                                <th>  سعر الوحدة</th>
+                                                <th>   الاجمالى</th>
+                                                <th> صاحب الطلب </th>
+                                                <th>  ملاحظات</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            if ($courses_branches) {
-                                                foreach ($courses_branches as $course_branch) {
+                                            if ($services) {
+                                                foreach ($services as $service) {
                                                     ?>
                                                     <tr>
-                                                        <td><a href="<?= URL ?>coursesbranches/<?= $course_branch['id'] ?>"><?= $course_branch['id'] ?> </a></td>
-                                                        <td><a href="<?= URL ?>courses/<?= $course_branch['course_id'] ?>" target="_blank"><?= $course_branch['course'] ?> </a></td>
-                                                        <td><a href="<?= URL ?>branches/<?= $course_branch['branch_id'] ?>" target="_blank"><?= $course_branch['branch'] ?> </a></td>
-                                                        <td><a href="<?= URL ?>instructors/<?= $course_branch['instructor_id'] ?>" target="_blank"><?= $course_branch['instructor'] ?> </a></td>
-                                                        <td> <?= $course_branch['start_date'] ?> </td>
-                                                        <td> <?= $course_branch['end_date'] ?> </td>
-                                                        <td> <?= $course_branch['lectures_number'] ?> </td>
-                                                        <td> <?= $course_branch['price'] ?> </td>
-                                                        <td> <?= $course_branch['created_by'] ?> </td>
-                                                        <td> <?= $course_branch['updated_by'] ?> </td>
+                                                        <td><a href="<?= URL ?>branches/<?= $service['branch_id'] ?>"><?= $service['branch'] ?> </a></td>
+                                                        <td><a href="<?= URL ?>vendors/<?= $service['vendor_id'] ?>"><?= $service['vendor'] ?> </a></td>
+                                                        <td> <?= $service['name'] ?> </td>
+                                                        <td> <?= $service['request_date'] ?> </td>
+                                                        <td> <?= $service['quantity'] ?> </td>
+                                                        <td> <?= $service['unit_price'] ?> </td>
+                                                        <td> <?= $service['total_price'] ?> </td>
+                                                        <td> <?= $service['creator'] ?> </td>
+                                                        <td> <?= $service['notes'] ?> </td>
                                                     </tr>
                                                     <?php
                                                 }
@@ -348,12 +314,12 @@
             <i class="icon-login"></i>
         </a>
         <!-- END QUICK SIDEBAR -->
-
-        <!-- END CONTAINER -->
-        <!-- BEGIN FOOTER -->
-        <div class="page-footer">
-            <?php require_once'layout/footer.php' ?>
-        </div>
-    </body>
+    </div>
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+    <div class="page-footer">
+        <?php require_once'layout/footer.php' ?>
+    </div>
+</body>
 
 </html>
