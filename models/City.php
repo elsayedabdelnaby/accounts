@@ -39,9 +39,20 @@ class City {
         }
     }
 
-    public function get($city_id) {
+    public function get($conditions) {
         $query = 'SELECT meds_cities.id, meds_cities.name, meds_countries.id AS country_id, meds_countries.name AS country '
-                . 'FROM meds_cities INNER JOIN meds_countries ON meds_cities.country_id = meds_countries.id WHERE id = ?';
+                . 'FROM meds_cities INNER JOIN meds_countries ON meds_cities.country_id = meds_countries.id WHERE ';
+        if (!empty($conditions)) {
+            $count = 0;
+            foreach ($conditions as $key => $value) {
+                if ($count == 0) {
+                    $query .= $key . $value;
+                } else {
+                    $query .= ' AND ' . $key . $value;
+                }
+                $count++;
+            }
+        }
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $city_id, PDO::PARAM_INT);
         if ($stmt->execute()) {
@@ -50,10 +61,24 @@ class City {
             return false;
         }
     }
-    
+
+    public function update($city) {
+        $query = 'UPDATE meds_cities SET name = ?, country_id = ? WHERE id = ?';
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $city['name'], PDO::PARAM_STR);
+        $stmt->bindParam(2, $city['country_id'], PDO::PARAM_INT);
+        $stmt->bindParam(3, $city['id'], PDO::PARAM_INT);
+        if ($stmt->execute()) {
+            return $stmt->rowCount();
+        } else {
+            return false;
+        }
+    }
+
     /*
      * get all students that exist in this city
      */
+
     public function get_students($city_id) {
         $query = 'SELECT meds_students.id, meds_students.name, meds_students.phone, meds_students.mobile, meds_students.balance, meds_students.notes,'
                 . ' meds_branches.name as branch, meds_branches.id as branch_id,'
