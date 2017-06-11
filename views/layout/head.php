@@ -41,7 +41,9 @@
 <link href="<?= URL ?>assets/global/css/components-rtl.min.css" rel="stylesheet" id="style_components" type="text/css" />
 <link href="<?= URL ?>assets/global/css/plugins-rtl.min.css" rel="stylesheet" type="text/css" />
 <!-- END THEME GLOBAL STYLES -->
+<link href="<?= URL ?>assets/global/plugins/typeahead/typeahead.css" rel="stylesheet" type="text/css" />
 <!-- BEGIN PAGE LEVEL PLUGINS Login-->
 <link href="<?= URL ?>assets/pages/css/login-2-rtl.min.css" rel="stylesheet" type="text/css" />
+<link href="<?= URL ?>assets/pages/css/invoice-rtl.min.css" rel="stylesheet" type="text/css"/>
 <!-- END PAGE LEVEL PLUGINS Login-->
 <link rel="shortcut icon" href="favicon.ico" />

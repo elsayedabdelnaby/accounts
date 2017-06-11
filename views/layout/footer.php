@@ -77,3 +77,4 @@
 <script src="<?= URL ?>assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
 <script src="<?= URL ?>assets/global/scripts/inputs.validations.js" type="text/javascript"></script>
+<script src="<?= URL ?>assets/global/scripts/custom.js" type="text/javascript"></script>

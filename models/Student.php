@@ -9,15 +9,7 @@ class Student {
     }
 
     public function fetch_all() {
-        $query = 'SELECT meds_students.id, meds_students.name, meds_students.phone, meds_students.mobile, meds_students.notes,'
-                . ' meds_branches.name as branch, meds_branches.id as branch_id,'
-                . ' meds_countries.name AS country, meds_countries.id AS country_id,'
-                . ' meds_cities.name as city, meds_cities.id as city_id,'
-                . ' meds_addresses.street FROM meds_students'
-                . ' INNER JOIN meds_branches ON meds_students.branch_id = meds_branches.id'
-                . ' INNER JOIN meds_addresses ON meds_students.address_id = meds_addresses.id'
-                . ' INNER JOIN meds_countries ON meds_addresses.country_id = meds_countries.id'
-                . ' INNER JOIN meds_cities ON meds_addresses.city_id = meds_cities.id';
+        $query = 'SELECT meds_students.id, meds_students.name, meds_students.phone FROM meds_students';
         $stmt = $this->conn->prepare($query);
         if ($stmt->execute()) {
             $students = [];
@@ -32,23 +24,13 @@ class Student {
 
     public function add($student) { // take student(associative array) array hold all data you will insert it
         // prepare sql and bind parameters
-        $stmt = $this->conn->prepare('INSERT INTO meds_students (name, phone, mobile, created_at, notes, branch_id, address_id) 
-        VALUES (:name, :phone, :mobile, :created_at, :notes, :branch_id, :address_id)');
+        $stmt = $this->conn->prepare('INSERT INTO meds_students (name, phone) 
+        VALUES (:name, :phone)');
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':phone', $phone);
-        $stmt->bindParam(':mobile', $mobile);
-        $stmt->bindParam(':notes', $notes);
-        $stmt->bindParam(':branch_id', $branch_id);
-        $stmt->bindParam(':created_at', $created_at);
-        $stmt->bindParam(':address_id', $address_id);
         // insert a row
         $name = $student['name'];
         $phone = $student['phone'];
-        $mobile = $student['mobile'];
-        $notes = $student['notes'];
-        $branch_id = $student['branch_id'];
-        $created_at = $student['created_at'];
-        $address_id = $student['address_id'];
         if ($stmt->execute()) {
             return $this->conn->lastInsertId();
         } else {
@@ -57,16 +39,7 @@ class Student {
     }
 
     public function get($conditions) {
-        $query = 'SELECT meds_students.id, meds_students.name, meds_students.phone,'
-                . ' meds_students.mobile, meds_students.notes, meds_students.address_id,'
-                . ' meds_branches.name as branch, meds_branches.id as branch_id,'
-                . ' meds_countries.name AS country, meds_countries.id AS country_id,'
-                . ' meds_cities.name as city, meds_cities.id as city_id,'
-                . ' meds_addresses.street FROM meds_students'
-                . ' INNER JOIN meds_branches ON meds_students.branch_id = meds_branches.id'
-                . ' INNER JOIN meds_addresses on meds_students.address_id = meds_addresses.id'
-                . ' INNER JOIN meds_countries ON meds_addresses.country_id = meds_countries.id'
-                . ' INNER JOIN meds_cities ON meds_addresses.city_id = meds_cities.id WHERE ';
+        $query = 'SELECT meds_students.id, meds_students.name, meds_students.phone FROM meds_students WHERE ';
         if (!empty($conditions)) {
             $count = 0;
             foreach ($conditions as $key => $value) {
@@ -87,63 +60,12 @@ class Student {
         }
     }
 
-    public function get_branch($student_id) {
-        $stmt = $this->conn->prepare('SELECT meds_branches.id, meds_branches.name FROM meds_students INNER JOIN meds_branches ON meds_students.branch_id = meds_branches.id WHERE meds_students.id = ?');
-        $stmt->bindParam(1, $student_id, PDO::PARAM_INT);
-        if ($stmt->execute()) {
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        } else {
-            return false;
-        }
-    }
-
-    public function get_address($student_id) {
-        $stmt = $this->conn->prepare('SELECT * FROM meds_students INNER JOIN meds_addresses ON meds_students.address_id = meds_addresses.id WHERE meds_students.id = ?');
-        $stmt->bindParam(1, $student_id, PDO::PARAM_INT);
-        if ($stmt->execute()) {
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        } else {
-            return false;
-        }
-    }
-
-    public function get_country($student_id) {
-        $query = 'SELECT meds_countries.id AS id, meds_countries.name AS name FROM meds_students'
-                . ' INNER JOIN meds_addresses ON meds_students.address_id  = meds_addresses.id'
-                . ' INNER JOIN meds_countries ON meds_addresses.country_id = meds_countries.id'
-                . ' WHERE meds_students.id = ?';
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $student_id, PDO::PARAM_INT);
-        if ($stmt->execute()) {
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        } else {
-            return false;
-        }
-    }
-
-    public function get_city($student_id) {
-        $query = 'SELECT meds_cities.id AS id, meds_cities.name AS name FROM meds_students'
-                . ' INNER JOIN meds_addresses ON meds_students.address_id  = meds_addresses.id'
-                . ' INNER JOIN meds_cities ON meds_addresses.city_id = meds_cities.id'
-                . ' WHERE meds_students.id = ?';
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $student_id, PDO::PARAM_INT);
-        if ($stmt->execute()) {
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        } else {
-            return false;
-        }
-    }
-
     public function update($student) {
-        $query = 'UPDATE meds_students SET name = ?, phone = ?, mobile = ?, notes = ?, branch_id = ? WHERE id = ?';
+        $query = 'UPDATE meds_students SET name = ?, phone = ? WHERE id = ?';
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $student['name'], PDO::PARAM_STR);
         $stmt->bindParam(2, $student['phone'], PDO::PARAM_STR);
-        $stmt->bindParam(3, $student['mobile'], PDO::PARAM_STR);
-        $stmt->bindParam(4, $student['notes'], PDO::PARAM_STR);
-        $stmt->bindParam(5, $student['branch_id'], PDO::PARAM_INT);
-        $stmt->bindParam(6, $student['id'], PDO::PARAM_INT);
+        $stmt->bindParam(3, $student['id'], PDO::PARAM_INT);
         if ($stmt->execute()) {
             return $stmt->rowCount();
         } else {

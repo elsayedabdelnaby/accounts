@@ -51,10 +51,10 @@
                     </div>
                     <!-- END PAGE HEADER-->
                     <?php if ($success_msg != '') { ?>
-                        <div id="prefix_1333978461963" title="" message="<?=$success_msg?>" btn-class="btn-success" type="success">
+                        <div id="prefix_1333978461963" title="" message="<?= $success_msg ?>" btn-class="btn-success" type="success">
                         </div>
                     <?php } elseif ($error_msg != '') { ?>
-                        <div id="prefix_1333978461963" title="" message="<?=$error_msg?>" btn-class="btn-danger" type="error">
+                        <div id="prefix_1333978461963" title="" message="<?= $error_msg ?>" btn-class="btn-danger" type="error">
                         </div>
                     <?php } ?>
                     <div class="row">
@@ -84,63 +84,6 @@
                                             </div>
                                             <div class="col-md-1"></div>
                                         </div>
-                                        <div class="form-body row">
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <select name='country' class='form-control' id='countryList' required="required">
-                                                    <option value='0'>أختر</option>
-                                                    <?php
-                                                    foreach ($countries as $country) {
-                                                        ?>
-                                                        <option value="<?= $country['id'] ?>" <?php if (@$_POST['country'] == $country['id']) { ?>selected<?php } ?>><?= $country['name'] ?></option>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </select>
-                                                <span id="delivery-error" class="help-block help-block-error"></span>
-                                                <label for="form_control_1">الدولة</label>
-                                            </div>
-
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="mobile" number="phone" type="text" value="<?= @$_POST['mobile'] ?>" autocomplete="off">
-                                                <label for="form_control_1">الموبايل</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-body row">
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <select name='city' class='form-control' id='cityList' required="required">
-                                                    <option value='0'>أختر</option>
-                                                    <?php
-                                                    foreach ($cities as $city) {
-                                                        ?>
-                                                        <option value="<?= $city['id'] ?>"<?php if (@$_POST['city'] == $city['id']) { ?>selected<?php } ?>><?= $city['name'] ?></option>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </select>
-                                                <span id="delivery-error" class="help-block help-block-error"></span>
-                                                <label for="form_control_1">المدينة</label>
-                                            </div>
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="email" type="email" value="<?= @$_POST['email'] ?>" autocomplete="off">
-                                                <label for="form_control_1">الايميل</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-body row">
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" name="street" type="text" value="<?= @$_POST['street'] ?>" autocomplete="off">
-                                                <label for="form_control_1">الشارع</label>
-                                            </div>
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <textarea class="form-control" name="description" rows="1"></textarea>
-                                                <label for="form_control_1">الملاحظات</label>
-                                            </div>
-                                        </div>
                                         <div class="form-actions noborder">
                                             <input type="submit" class="btn blue submit-button" value="إضافة">
                                             <button type="reset" class="btn default" style="margin-right:9px;">إلغاء</button>
@@ -154,87 +97,30 @@
                             <div class="portlet-title">
                                 <div class="caption font-green">
                                     <i class="icon-pin font-green"></i>
-                                    <span class="caption-subject bold">تعديل بيانات الطالب</span>
+                                    <span class="caption-subject bold">تعديل بيانات المحاضر</span>
                                 </div>
                             </div>
                             <div class="portlet-body form">
-                                    <form method="POST" action="<?= URL ?>instructors/<?= $row['id'] ?>" accept-charset="UTF-8" role="form" novalidate="novalidate">
-                                        <div class="form-body row">
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="name" type="text" value="<?= $row['name'] ?>" autocomplete="off">
-                                                <label for="form_control_1">ألاسم</label>
-                                            </div>
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="phone" number="phone" type="text" value="<?= $row['phone'] ?>" autocomplete="off">
-                                                <label for="form_control_1">التليفون</label>
-                                            </div>
-                                            <div class="col-md-1"></div>
+                                <form method="POST" action="<?= URL ?>instructors/<?= $row['id'] ?>" accept-charset="UTF-8" role="form" novalidate="novalidate">
+                                    <div class="form-body row">
+                                        <div class="col-md-1"></div>
+                                        <div class="form-group form-md-line-input form-md-floating-label col-md-4">
+                                            <input class="form-control" id="form_control_1" required="required" name="name" type="text" value="<?= $row['name'] ?>" autocomplete="off">
+                                            <label for="form_control_1">ألاسم</label>
                                         </div>
-                                        <div class="form-body row">
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <select name='country' class='form-control' id='countryList' required="required">
-                                                    <option value='0'>أختر</option>
-                                                    <?php
-                                                    foreach ($countries as $country) {
-                                                        ?>
-                                                        <option value="<?= $country['id'] ?>" <?php if ($row['country_id'] == $country['id']) { ?>selected<?php } ?>><?= $country['name'] ?></option>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </select>
-                                                <span id="delivery-error" class="help-block help-block-error"></span>
-                                                <label for="form_control_1">الدولة</label>
-                                            </div>
-
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="mobile" number="phone" type="text" value="<?= $row['mobile'] ?>" autocomplete="off">
-                                                <label for="form_control_1">الموبايل</label>
-                                            </div>
+                                        <div class="col-md-1"></div>
+                                        <div class="form-group form-md-line-input form-md-floating-label col-md-4">
+                                            <input class="form-control" id="form_control_1" required="required" name="phone" number="phone" type="text" value="<?= $row['phone'] ?>" autocomplete="off">
+                                            <label for="form_control_1">التليفون</label>
                                         </div>
-                                        <div class="form-body row">
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <select name='city' class='form-control' id='cityList' required="required">
-                                                    <option value='0'>أختر</option>
-                                                    <?php
-                                                    foreach ($cities as $city) {
-                                                        ?>
-                                                        <option value="<?= $city['id'] ?>"<?php if ($row['city_id'] == $city['id']) { ?>selected<?php } ?>><?= $city['name'] ?></option>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </select>
-                                                <span id="delivery-error" class="help-block help-block-error"></span>
-                                                <label for="form_control_1">المدينة</label>
-                                            </div>
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="email" type="email" value="<?= $row['email'] ?>" autocomplete="off">
-                                                <label for="form_control_1">الايميل</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-body row">
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" name="street" type="text" value="<?= $row['street'] ?>" autocomplete="off">
-                                                <label for="form_control_1">الشارع</label>
-                                            </div>
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <textarea class="form-control" name="description" rows="1"><?= $row['description'] ?></textarea>
-                                                <label for="form_control_1">الملاحظات</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-actions noborder">
-                                            <input type="submit" class="btn blue submit-button" value="تعديل">
-                                            <button type="reset" class="btn default" style="margin-right:9px;">إلغاء</button>
-                                        </div>
-                                    </form>
-                                </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                    <div class="form-actions noborder">
+                                        <input type="submit" class="btn blue submit-button" value="تعديل">
+                                        <button type="reset" class="btn default" style="margin-right:9px;">إلغاء</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     <?php } ?>
                     <div class="row">
@@ -255,12 +141,6 @@
                                             <tr>
                                                 <th> ألاسم </th>
                                                 <th> التليفون </th>
-                                                <th> الموبايل </th>
-                                                <th> الايميل </th>
-                                                <th>  الدولة</th>
-                                                <th>  المدينة</th>
-                                                <th> الشارع </th>
-                                                <th>  ملاحظات</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -271,12 +151,6 @@
                                                     <tr>
                                                         <td><a href="<?= URL ?>instructors/<?= $instructor['id'] ?>"><?= $instructor['name'] ?> </a></td>
                                                         <td> <?= $instructor['phone'] ?> </td>
-                                                        <td> <?= $instructor['mobile'] ?> </td>
-                                                        <td> <?= $instructor['email'] ?> </td>
-                                                        <td> <?= $instructor['country'] ?> </td>
-                                                        <td> <?= $instructor['city'] ?> </td>
-                                                        <td> <?= $instructor['street'] ?> </td>
-                                                        <td> <?= $instructor['description'] ?> </td>
                                                     </tr>
                                                     <?php
                                                 }
@@ -302,12 +176,11 @@
             <i class="icon-login"></i>
         </a>
         <!-- END QUICK SIDEBAR -->
-    </div>
-    <!-- END CONTAINER -->
-    <!-- BEGIN FOOTER -->
-    <div class="page-footer">
-        <?php require_once'layout/footer.php' ?>
-    </div>
-</body>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <div class="page-footer">
+            <?php require_once'layout/footer.php' ?>
+        </div>
+    </body>
 
 </html>

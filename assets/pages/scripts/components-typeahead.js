@@ -35,7 +35,7 @@ var ComponentsTypeahead = function () {
           queryTokenizer: Bloodhound.tokenizers.whitespace,
           limit: 10,
           prefetch: {
-            url: '../demo/typeahead_countries.json',
+            url: 'demo/typeahead_countries.json',
             filter: function(list) {
               return $.map(list, function(country) { return { name: country }; });
             }
@@ -59,7 +59,7 @@ var ComponentsTypeahead = function () {
           datumTokenizer: function(d) { return d.tokens; },
           queryTokenizer: Bloodhound.tokenizers.whitespace,
           remote: {
-            url: '../demo/typeahead_custom.php?query=%QUERY',
+            url: 'demo/typeahead_custom.php?query=%QUERY',
             wildcard: '%QUERY'
           }
         });
@@ -96,13 +96,13 @@ var ComponentsTypeahead = function () {
         var nba = new Bloodhound({
           datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.team); },
           queryTokenizer: Bloodhound.tokenizers.whitespace,
-          prefetch: '../demo/typeahead_nba.json'
+          prefetch: 'demo/typeahead_nba.json'
         });
          
         var nhl = new Bloodhound({
           datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.team); },
           queryTokenizer: Bloodhound.tokenizers.whitespace,
-          prefetch: '../demo/typeahead_nhl.json'
+          prefetch: 'demo/typeahead_nhl.json'
         });
          
         nba.initialize();
@@ -169,7 +169,7 @@ var ComponentsTypeahead = function () {
           queryTokenizer: Bloodhound.tokenizers.whitespace,
           limit: 10,
           prefetch: {
-            url: '../demo/typeahead_countries.json',
+            url: 'demo/typeahead_countries.json',
             filter: function(list) {
               return $.map(list, function(country) { return { name: country }; });
             }
@@ -192,7 +192,7 @@ var ComponentsTypeahead = function () {
         var custom = new Bloodhound({
           datumTokenizer: function(d) { return d.tokens; },
           queryTokenizer: Bloodhound.tokenizers.whitespace,
-          remote: '../demo/typeahead_custom.php?query=%QUERY'
+          remote: 'demo/typeahead_custom.php?query=%QUERY'
         });
          
         custom.initialize();
@@ -228,14 +228,14 @@ var ComponentsTypeahead = function () {
           datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.team); },
           queryTokenizer: Bloodhound.tokenizers.whitespace,
           limit: 3,
-          prefetch: '../demo/typeahead_nba.json'
+          prefetch: 'demo/typeahead_nba.json'
         });
          
         var nhl = new Bloodhound({
           datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.team); },
           queryTokenizer: Bloodhound.tokenizers.whitespace,
           limit: 3,
-          prefetch: '../demo/typeahead_nhl.json'
+          prefetch: 'demo/typeahead_nhl.json'
         });
          
         nba.initialize();

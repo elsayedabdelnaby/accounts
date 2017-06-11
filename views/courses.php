@@ -79,8 +79,8 @@
                                             </div>
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="hours_number" number="number" type="text" value="<?= @$_POST['total_hours'] ?>" autocomplete="off">
-                                                <label for="form_control_1">عدد ساعات الكورس</label>
+                                                <input class="form-control" id="form_control_1" required="required" name="price" number="number" type="text" value="<?= @$_POST['price'] ?>" autocomplete="off">
+                                                <label for="form_control_1">السعر</label>
                                             </div>
                                             <div class="col-md-1"></div>
                                         </div>
@@ -112,7 +112,7 @@
                                                 </div>
                                             </div>
                                         </div-->
-                                        <div class="form-body row">
+                                        <!--div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
                                                 <textarea class="form-control" name="content" rows="3"><?= @$_POST['content'] ?></textarea>
@@ -136,7 +136,7 @@
                                             </div>
                                             <div class="col-md-1"></div>
 
-                                        </div>
+                                        </div -->
                                         <div class="form-actions noborder">
                                             <input type="submit" class="btn blue submit-button" value="إضافة">
                                             <button type="reset" class="btn default" style="margin-right:9px;">إلغاء</button>
@@ -153,7 +153,7 @@
                                     <span class="caption-subject bold">تعديل بيانات الطالب</span>
                                 </div>
                             </div>
-                            <div class="portlet-body form">
+                            <!--div class="portlet-body form">
                                 <form method="POST" action="<?= URL ?>courses/<?= $row['id'] ?>" accept-charset="UTF-8" role="form" novalidate="novalidate">
                                     <div class="form-body row">
                                         <div class="col-md-1"></div>
@@ -198,7 +198,7 @@
                                         <button type="reset" class="btn default" style="margin-right:9px;">إلغاء</button>
                                     </div>
                                 </form>
-                            </div>
+                            </div-->
                         </div>
                     <?php } ?>
                     <div class="row">
@@ -218,12 +218,8 @@
                                         <thead>
                                             <tr>
                                                 <th> ألاسم </th>
-                                                <th> عدد الساعات </th>
-                                                <th> المحتوى </th>
-                                                <th>  اهداف الكورس </th>
-                                                <th> الملاحظات </th>
+                                                <th> السعر </th>
                                                 <th> تم الانشاء ب</th>
-                                                <th>  تم التعديل ب</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -233,12 +229,8 @@
                                                     ?>
                                                     <tr>
                                                         <td><a href="<?= URL ?>courses/<?= $course['id'] ?>"><?= $course['name'] ?> </a></td>
-                                                        <td> <?= $course['hours_number'] ?> </td>
-                                                        <td> <?= $course['content'] ?> </td>
-                                                        <td> <?= $course['learning_objectives'] ?> </td>
-                                                        <td> <?= $course['notes'] ?> </td>
+                                                        <td> <?= $course['price'] ?> </td>
                                                         <td> <?= $course['created_by'] ?> </td>
-                                                        <td> <?= $course['updated_by'] ?> </td>
                                                     </tr>
                                                     <?php
                                                 }

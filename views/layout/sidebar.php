@@ -8,29 +8,6 @@
                 <span class="selected"></span>
                 <span class="arrow open"></span>
             </a>
-            <!--ul class="sub-menu">
-                <li class="nav-item start active open">
-                    <a href="index.html" class="nav-link ">
-                        <i class="icon-bar-chart"></i>
-                        <span class="title">Dashboard 1</span>
-                        <span class="selected"></span>
-                    </a>
-                </li>
-                <li class="nav-item start ">
-                    <a href="dashboard_2.html" class="nav-link ">
-                        <i class="icon-bulb"></i>
-                        <span class="title">Dashboard 2</span>
-                        <span class="badge badge-success">1</span>
-                    </a>
-                </li>
-                <li class="nav-item start ">
-                    <a href="dashboard_3.html" class="nav-link ">
-                        <i class="icon-graph"></i>
-                        <span class="title">Dashboard 3</span>
-                        <span class="badge badge-danger">5</span>
-                    </a>
-                </li>
-            </ul-->
         </li>
         <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
@@ -47,44 +24,15 @@
             </ul>
         </li>
         <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="icon-settings"></i>
-                <span class="title">الدول</span>
-                <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="<?= URL ?>countries" class="nav-link ">
-                        <span class="title">اضافة دولة جديدة</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        
-        <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="icon-bulb"></i>
-                <span class="title">العملات</span>
-                <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="<?= URL ?>currencies" class="nav-link ">
-                        <span class="title">اضافة عملة جديدة</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item  ">
             <a href="?p=" class="nav-link nav-toggle">
                 <i class="icon-wallet"></i>
-                <span class="title">طرق السداد</span>
+                <span class="title">طرق الدفع</span>
                 <span class="arrow"></span>
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
                     <a href="<?= URL ?>paymentmethods" class="nav-link ">
-                        <span class="title">اضافة طريقة سداد</span>
+                        <span class="title">اضافة طريقة دفع</span>
                     </a>
                 </li>
             </ul>
@@ -92,18 +40,13 @@
         <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="icon-pointer"></i>
-                <span class="title">الموردين\المعامل</span>
+                <span class="title">المعامل</span>
                 <span class="arrow"></span>
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
                     <a href="<?= URL ?>vendors" class="nav-link ">
-                        <span class="title">اضافة مورد\معمل</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="maps_vector.html" class="nav-link ">
-                        <span class="title">Vector Maps</span>
+                        <span class="title">اضافة معمل </span>
                     </a>
                 </li>
             </ul>
@@ -134,11 +77,6 @@
                         <span class="title">اضافة كورس جديد</span>
                     </a>
                 </li>
-                <li class="nav-item  ">
-                    <a href="<?= URL ?>coursesbranches" class="nav-link ">
-                        <span class="title">اضافة كورس الى الفرع</span>
-                    </a>
-                </li>
             </ul>
         </li>
         <li class="nav-item  ">
@@ -159,33 +97,13 @@
         <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="icon-layers"></i>
-                <span class="title">Page Layouts</span>
+                <span class="title">الموظفين</span>
                 <span class="arrow"></span>
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="layout_blank_page.html" class="nav-link ">
-                        <span class="title">Blank Page</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="layout_ajax_page.html" class="nav-link ">
-                        <span class="title">Ajax Content Layout</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="layout_language_bar.html" class="nav-link ">
-                        <span class="title">Header Language Bar</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="layout_footer_fixed.html" class="nav-link ">
-                        <span class="title">Fixed Footer</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="layout_boxed_page.html" class="nav-link ">
-                        <span class="title">Boxed Page</span>
+                    <a href="<?= URL ?>employes" class="nav-link ">
+                        <span class="title">اضافة موظف جديد</span>
                     </a>
                 </li>
             </ul>
@@ -193,7 +111,7 @@
         <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="icon-feed"></i>
-                <span class="title">Sidebar Layouts</span>
+                <span class="title">الخرج</span>
                 <span class="arrow"></span>
             </a>
             <ul class="sub-menu">

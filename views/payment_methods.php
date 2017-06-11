@@ -78,23 +78,6 @@
                                                 <label for="form_control_1">ألاسم</label>
                                             </div>
                                         </div>
-                                        <div class="form-body row">
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <select name='branch' class='form-control' id='branchList' required="required">
-                                                    <option value='0'>أختر</option>
-                                                    <?php
-                                                    foreach ($branches as $branch) {
-                                                        ?>
-                                                        <option value="<?= $branch['id'] ?>"<?php if (@$_POST['branch'] == $branch['id']) { ?>selected<?php } ?>><?= $branch['name'] ?></option>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </select>
-                                                <span id="delivery-error" class="help-block help-block-error"></span>
-                                                <label for="form_control_1">الفرع</label>
-                                            </div>
-                                        </div>
                                         <div class="form-actions noborder">
                                             <input type="submit" class="btn blue submit-button" value="إضافة">
                                             <button type="reset" class="btn default" style="margin-right:9px;">إلغاء</button>
@@ -119,23 +102,6 @@
                                         <div class="form-group form-md-line-input form-md-floating-label col-md-4">
                                             <input class="form-control" id="form_control_1" required="required" name="name" type="text" value="<?= $row['name'] ?>" autocomplete="off">
                                             <label for="form_control_1">ألاسم</label>
-                                        </div>
-                                    </div>
-                                    <div class="form-body row">
-                                        <div class="col-md-1"></div>
-                                        <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <select name='branch' class='form-control' id='branchList' required="required">
-                                                <option value='0'>أختر</option>
-                                                <?php
-                                                foreach ($branches as $branch) {
-                                                    ?>
-                                                    <option value="<?= $branch['id'] ?>"<?php if ($row['branch_id'] == $branch['id']) { ?>selected<?php } ?>><?= $branch['name'] ?></option>
-                                                    <?php
-                                                }
-                                                ?>
-                                            </select>
-                                            <span id="delivery-error" class="help-block help-block-error"></span>
-                                            <label for="form_control_1">الفرع</label>
                                         </div>
                                     </div>
                                     <div class="form-actions noborder">
@@ -163,7 +129,6 @@
                                         <thead>
                                             <tr>
                                                 <th> ألاسم </th>
-                                                <th> الفرع </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -173,7 +138,6 @@
                                                     ?>
                                                     <tr>
                                                         <td><a href="<?= URL ?>paymentmethods/<?= $paymentmethod['id'] ?>"><?= $paymentmethod['name'] ?> </a></td>
-                                                        <td><?= $paymentmethod['branch'] ?></td>
                                                     </tr>
                                                     <?php
                                                 }

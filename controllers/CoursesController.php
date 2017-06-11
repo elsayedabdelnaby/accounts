@@ -26,12 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $error_msg = '';
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $course_array = array();
-
     $course_array['name'] = $_POST['name'];
-    $course_array['hours_number'] = $_POST['hours_number'];
-    $course_array['content'] = $_POST['content'];
-    $course_array['learning_objectives'] = $_POST['learning_objectives'];
-    $course_array['notes'] = $_POST['notes'];
+    $course_array['price'] = $_POST['price'];
     $row = $course_array;
 
     if (isset($_GET['id'])) { // update request

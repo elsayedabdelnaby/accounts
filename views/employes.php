@@ -31,7 +31,7 @@
                     <!-- BEGIN THEME PANEL -->
                     <?php //require_once'layout\theme_panel.php' ?>
                     <!-- END THEME PANEL -->
-                    <h1 class="page-title">المعامل
+                    <h1 class="page-title"> الموظفين
                         <small></small>
                     </h1>
                     <div class="page-bar">
@@ -39,7 +39,7 @@
                             <li>
                                 <i class="icon-home"></i>
                                 <a href="../views/home.php">الرئسية</a>
-                                <i class="fa">> المعامل</i>
+                                <i class="fa fa-angle-right">الموظفين</i>
                             </li>
                             <li>
                                 <span></span>
@@ -66,23 +66,17 @@
                                 <div class="portlet-title">
                                     <div class="caption font-green">
                                         <i class="icon-pin font-green"></i>
-                                        <span class="caption-subject bold">اضافة معمل </span>
+                                        <span class="caption-subject bold">أضافة موظف جديد</span>
                                     </div>
                                 </div>
                                 <div class="portlet-body form">
-                                    <form method="POST" action="<?= URL ?>vendors" accept-charset="UTF-8" role="form" novalidate="novalidate">
+                                    <form method="POST" action="<?= URL ?>employes" accept-charset="UTF-8" role="form" novalidate="novalidate">
                                         <div class="form-body row">
                                             <div class="col-md-1"></div>
                                             <div class="form-group form-md-line-input form-md-floating-label col-md-4">
                                                 <input class="form-control" id="form_control_1" required="required" name="name" type="text" value="<?= @$_POST['name'] ?>" autocomplete="off">
                                                 <label for="form_control_1">ألاسم</label>
                                             </div>
-                                            <div class="col-md-1"></div>
-                                            <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                                <input class="form-control" id="form_control_1" required="required" name="phone" number="phone" type="text" value="<?= @$_POST['phone'] ?>" autocomplete="off">
-                                                <label for="form_control_1">التليفون</label>
-                                            </div>
-                                            <div class="col-md-1"></div>
                                         </div>
                                         <div class="form-actions noborder">
                                             <input type="submit" class="btn blue submit-button" value="إضافة">
@@ -97,23 +91,17 @@
                             <div class="portlet-title">
                                 <div class="caption font-green">
                                     <i class="icon-pin font-green"></i>
-                                    <span class="caption-subject bold">تعديل بيانات الطالب</span>
+                                    <span class="caption-subject bold">تعديل بيانات المحاضر</span>
                                 </div>
                             </div>
                             <div class="portlet-body form">
-                                <form method="POST" action="<?= URL ?>vendors/<?= $row['id'] ?>" accept-charset="UTF-8" role="form" novalidate="novalidate">
+                                <form method="POST" action="<?= URL ?>employes/<?= $row['id'] ?>" accept-charset="UTF-8" role="form" novalidate="novalidate">
                                     <div class="form-body row">
                                         <div class="col-md-1"></div>
                                         <div class="form-group form-md-line-input form-md-floating-label col-md-4">
                                             <input class="form-control" id="form_control_1" required="required" name="name" type="text" value="<?= $row['name'] ?>" autocomplete="off">
                                             <label for="form_control_1">ألاسم</label>
                                         </div>
-                                        <div class="col-md-1"></div>
-                                        <div class="form-group form-md-line-input form-md-floating-label col-md-4">
-                                            <input class="form-control" id="form_control_1" required="required" name="phone" number="phone" type="text" value="<?= $row['phone'] ?>" autocomplete="off">
-                                            <label for="form_control_1">التليفون</label>
-                                        </div>
-                                        <div class="col-md-1"></div>
                                     </div>
                                     <div class="form-actions noborder">
                                         <input type="submit" class="btn blue submit-button" value="تعديل">
@@ -132,7 +120,7 @@
                             <div class="portlet box green">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-globe"></i>المعامل</div>
+                                        <i class="fa fa-globe"></i>الموظفين </div>
                                     <div class="tools"> </div>
                                 </div>
                                 <div class="portlet-body">
@@ -140,19 +128,15 @@
                                         <thead>
                                             <tr>
                                                 <th> ألاسم </th>
-                                                <th> التليفون </th>
-                                                <th>  تم الاضافة ب</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            if ($vendors) {
-                                                foreach ($vendors as $vendor) {
+                                            if ($employes) {
+                                                foreach ($employes as $employe) {
                                                     ?>
                                                     <tr>
-                                                        <td><a href="<?= URL ?>vendors/<?= $vendor['id'] ?>"><?= $vendor['name'] ?> </a></td>
-                                                        <td> <?= $vendor['phone'] ?> </td>
-                                                        <td> <?= $vendor['created_by'] ?> </td>
+                                                        <td><a href="<?= URL ?>employes/<?= $employe['id'] ?>"><?= $employe['name'] ?> </a></td>
                                                     </tr>
                                                     <?php
                                                 }
@@ -178,12 +162,11 @@
             <i class="icon-login"></i>
         </a>
         <!-- END QUICK SIDEBAR -->
-    </div>
-    <!-- END CONTAINER -->
-    <!-- BEGIN FOOTER -->
-    <div class="page-footer">
-        <?php require_once'layout/footer.php' ?>
-    </div>
-</body>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <div class="page-footer">
+            <?php require_once'layout/footer.php' ?>
+        </div>
+    </body>
 
 </html>
