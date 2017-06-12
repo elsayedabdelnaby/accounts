@@ -7,9 +7,25 @@
 $(document).ready(function () {
     var sNumberPattern = /^[0-9]+$/i;
     $('#typeahead_example_2').attr('readonly', 'readonly');
+    $('#coursesDiv').css('display', 'none');
+    $('#coursesList').removeAttr('required');
+    $('#paymentmethodsList').removeAttr('required');
     $('#whoList').change(function () {
+        if ($(this).val() === '5') {
+            $('#coursesDiv').css('display', 'block');
+            $('#coursesList').attr('required', 'required');
+            $('#paymentmethodsList').attr('required', 'required');
+        } else if ($(this).val() === '4') {
+            $('#coursesDiv').css('display', 'none');
+            $('#coursesList').removeAttr('required');
+            $('#paymentmethodsList').removeAttr('required');
+        }
         if ($(this).val() === '0') {
             $('#typeahead_example_2').attr('readonly', 'readonly');
+            $('.tt-menu').css("display", "none");
+            $('#coursesDiv').css('display', 'none');
+            $('#coursesList').removeAttr('required');
+            $('#paymentmethodsList').removeAttr('required');
         } else {
             $('#typeahead_example_2').removeAttr('readonly');
             $(".tt-dataset-typeahead_example_2").empty();
@@ -84,6 +100,28 @@ $(document).ready(function () {
                 break;
             case '4':
                 $('.tt-menu').css("display", "none");
+                break;
+            case '5':
+                $.get('students?val=' + $('#typeahead_example_2').val(), function (data, status) {
+                    arrData = JSON.parse(data);
+                    if (typeof (arrData.length) !== 'undefined') {
+                        for (i = 0; i < arrData.length; i++) {
+                            $(".tt-dataset-typeahead_example_2").append($('<div></div>').attr('class', 'tt-suggestion tt-selectable').text(arrData[i]['name'] + ' - ' + arrData[i]['phone']).click(function () {
+                                $('#typeahead_example_2').val($(this).text());
+                                $('.tt-menu').css("display", "none");
+                            }));
+                        }
+                    } else {
+                        if (arrData !== false) {
+                            $(".tt-dataset-typeahead_example_2").append($('<div></div>').attr('class', 'tt-suggestion tt-selectable').text(arrData['name'] + ' - ' + arrData['phone']).click(function () {
+                                $('#typeahead_example_2').val($(this).text());
+                                $('.tt-menu').css("display", "none");
+                            }));
+                        } else {
+                            $('.tt-menu').css("display", "none");
+                        }
+                    }
+                });
                 break;
         }
     });

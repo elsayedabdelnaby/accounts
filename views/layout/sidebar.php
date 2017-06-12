@@ -116,28 +116,8 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="layout_sidebar_menu_accordion.html" class="nav-link ">
-                        <span class="title">Sidebar Accordion Menu</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="layout_sidebar_menu_compact.html" class="nav-link ">
-                        <span class="title">Sidebar Compact Menu</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="layout_sidebar_reversed.html" class="nav-link ">
-                        <span class="title">Reversed Sidebar Page</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="layout_sidebar_fixed.html" class="nav-link ">
-                        <span class="title">Fixed Sidebar Layout</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="layout_sidebar_closed.html" class="nav-link ">
-                        <span class="title">Closed Sidebar Layout</span>
+                    <a href="<?= URL ?>payments" class="nav-link ">
+                        <span class="title">اذن خرج</span>
                     </a>
                 </li>
             </ul>
@@ -145,13 +125,13 @@
         <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class=" icon-wrench"></i>
-                <span class="title">Custom Layouts</span>
+                <span class="title">الدخل</span>
                 <span class="arrow"></span>
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="layout_disabled_menu.html" class="nav-link ">
-                        <span class="title">Disabled Menu Links</span>
+                    <a href="<?= URL ?>entrances" class="nav-link ">
+                        <span class="title"> </span>
                     </a>
                 </li>
                 <li class="nav-item  ">

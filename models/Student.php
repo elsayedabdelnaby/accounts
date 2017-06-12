@@ -59,6 +59,27 @@ class Student {
             return false;
         }
     }
+    public function getOr($conditions) {
+        $query = 'SELECT meds_students.id, meds_students.name, meds_students.phone FROM meds_students WHERE ';
+        if (!empty($conditions)) {
+            $count = 0;
+            foreach ($conditions as $key => $value) {
+                if ($count == 0) {
+                    $query .= $key . $value;
+                } else {
+                    $query .= ' OR ' . $key . $value;
+                }
+                $count++;
+            }
+        }
+        $stmt = $this->conn->prepare($query);
+        $count = 1;
+        if ($stmt->execute()) {
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } else {
+            return false;
+        }
+    }
 
     public function update($student) {
         $query = 'UPDATE meds_students SET name = ?, phone = ? WHERE id = ?';

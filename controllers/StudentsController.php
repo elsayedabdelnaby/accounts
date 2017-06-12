@@ -11,7 +11,21 @@ $error_msg = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $form_type = 'insert';
-    if (isset($_GET['id'])) { // edit/update form
+    if (isset($_GET['pays'])) {
+        $who = 1;
+        $obj = $instructor->get(array('id = ' => $_GET['id']));
+        $allPayments = $instructor->getAllPayments($_GET['id']);
+        $total = $instructor->getTotalPayments($_GET['id']);
+        include_once '../views/paymentsdetails.php';
+        return;
+    } else if (isset($_GET['val'])) {
+        if (empty($_GET['val'])) {
+            echo json_encode($students);
+        } else {
+            echo json_encode($student->getOr(array('meds_students.name LIKE "%' => $_GET['val'] . '%"', 'meds_students.phone LIKE "%' => $_GET['val'] . '%"')));
+        }
+        exit;
+    } elseif (isset($_GET['id'])) { // edit/update form
         $student_id = $_GET['id'];
         $form_type = 'update';
         $row = $student->get(array('meds_students.id = ' => $student_id));
