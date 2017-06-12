@@ -128,6 +128,7 @@
                                         <thead>
                                             <tr>
                                                 <th> ألاسم </th>
+                                                <th> اخرى </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -137,6 +138,8 @@
                                                     ?>
                                                     <tr>
                                                         <td><a href="<?= URL ?>employes/<?= $employe['id'] ?>"><?= $employe['name'] ?> </a></td>
+                                                        <td> <a href="<?= URL ?>employes/<?= $employe['id'] ?>/pays" class="btn btn-outline btn-circle btn-sm purple" target="_blank">
+                                    <i class="fa fa-edit"></i> </a> </td>
                                                     </tr>
                                                     <?php
                                                 }
