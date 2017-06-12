@@ -142,6 +142,7 @@
                                                 <th> ألاسم </th>
                                                 <th> التليفون </th>
                                                 <th>  تم الاضافة ب</th>
+                                                <th> اخرى </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -153,6 +154,8 @@
                                                         <td><a href="<?= URL ?>vendors/<?= $vendor['id'] ?>"><?= $vendor['name'] ?> </a></td>
                                                         <td> <?= $vendor['phone'] ?> </td>
                                                         <td> <?= $vendor['created_by'] ?> </td>
+                                                        <td> <a href="<?= URL ?>vendors/<?= $vendor['id'] ?>/pays" class="btn btn-outline btn-circle btn-sm purple" target="_blank">
+                                    <i class="fa fa-edit"></i> </a> </td>
                                                     </tr>
                                                     <?php
                                                 }

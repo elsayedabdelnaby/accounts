@@ -12,11 +12,11 @@ $error_msg = '';
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $form_type = 'insert';
     if (isset($_GET['pays'])) {
-        $who = 1;
-        $obj = $instructor->get(array('id = ' => $_GET['id']));
-        $allPayments = $instructor->getAllPayments($_GET['id']);
-        $total = $instructor->getTotalPayments($_GET['id']);
-        include_once '../views/paymentsdetails.php';
+        $who = 5;
+        $obj = $student->get(array('id = ' => $_GET['id']));
+        $allPayments = $student->getAllPayments($_GET['id']);
+        $total = $student->getTotalPayments($_GET['id']);
+        include_once '../views/entrancedetails.php';
         return;
     } else if (isset($_GET['val'])) {
         if (empty($_GET['val'])) {

@@ -215,9 +215,9 @@
                                                 foreach ($payments as $payment) {
                                                     ?>
                                                     <tr>
-                                                        <td><a href="<?=URL.'instructors/'.$payment['instructor_id'].'/pays'?>"><?= $payment['instructor'] ?></a></td>
-                                                        <td><a href="<?=URL.'employes/'.$payment['employe_id'].'/pays'?>"><?= $payment['employe'] ?></a></td>
-                                                        <td><a href="<?=URL.'vendors/'.$payment['vendor_id'].'/pays'?>"><?= $payment['vendor'] ?></a></td>
+                                                        <td><a href="<?=URL.'instructors/'.$payment['instructor_id'].'/pays'?>" target="_blank"><?= $payment['instructor'] ?></a></td>
+                                                        <td><a href="<?=URL.'employes/'.$payment['employe_id'].'/pays'?>" target="_blank"><?= $payment['employe'] ?></a></td>
+                                                        <td><a href="<?=URL.'vendors/'.$payment['vendor_id'].'/pays'?>" target="_blank"><?= $payment['vendor'] ?></a></td>
                                                         <td><?= $payment['other'] ?></td>
                                                         <td><?= $payment['value'] ?></td>
                                                         <td><?= $payment['created_at'] ?></td>

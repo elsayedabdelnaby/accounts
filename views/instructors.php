@@ -141,6 +141,7 @@
                                             <tr>
                                                 <th> ألاسم </th>
                                                 <th> التليفون </th>
+                                                <th> اخرى </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -151,6 +152,8 @@
                                                     <tr>
                                                         <td><a href="<?= URL ?>instructors/<?= $instructor['id'] ?>"><?= $instructor['name'] ?> </a></td>
                                                         <td> <?= $instructor['phone'] ?> </td>
+                                                        <td> <a href="<?= URL ?>instructors/<?= $instructor['id'] ?>/pays" class="btn btn-outline btn-circle btn-sm purple" target="_blank">
+                                    <i class="fa fa-edit"></i> </a> </td>
                                                     </tr>
                                                     <?php
                                                 }

@@ -227,8 +227,8 @@
                                                 foreach ($payments as $payment) {
                                                     ?>
                                                     <tr>
-                                                        <td><a href="<?= URL . 'students/' . $payment['student_id'] . '/pays' ?>"><?= $payment['student'] ?></a></td>
-                                                        <td><a href="<?= URL . 'courses/' . $payment['course_id'] . '/pays' ?>"><?= $payment['course'].' - '.$payment['price'] ?></a></td>
+                                                        <td><a href="<?= URL . 'students/' . $payment['student_id'] . '/pays' ?>" target="_blank"><?= $payment['student'] ?></a></td>
+                                                        <td><a href="<?= URL . 'courses/' . $payment['course_id'] . '/pays' ?>" target="_blank"><?= $payment['course'].' - '.$payment['price'] ?></a></td>
                                                         <td><?= $payment['other'] ?></td>
                                                         <td><?= $payment['value'] ?></td>
                                                         <td><?= $payment['remaing'] ?></td>

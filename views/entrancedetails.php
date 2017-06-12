@@ -37,7 +37,7 @@
                     <!-- BEGIN THEME PANEL -->
                     <?php //require_once'layout\theme_panel.php' ?>
                     <!-- END THEME PANEL -->
-                    <h1 class="page-title"> الخرج
+                    <h1 class="page-title"> الدخل
                         <small></small>
                     </h1>
                     <div class="page-bar">
@@ -45,7 +45,7 @@
                             <li>
                                 <i class="icon-home"></i>
                                 <a href="../views/home.php">الرئسية</a>
-                                <i class="fa fa-angle-right">المدفوعات</i>
+                                <i class="fa fa-angle-right">الدخل</i>
                             </li>
                             <li>
                                 <span></span>
@@ -71,14 +71,11 @@
                                 <?php
                                 $title = 'اخرى';
                                 switch ($who) {
-                                    case 1:
-                                        $title = 'المحاضر';
+                                    case 5:
+                                        $title = 'الطالب';
                                         break;
-                                    case 2:
-                                        $title = 'الموظف';
-                                        break;
-                                    case 3:
-                                        $title = 'المعمل';
+                                    case 6:
+                                        $title = 'الكورس';
                                         break;
                                 }
                                 ?>
@@ -125,7 +122,13 @@
                                     <thead>
                                         <tr>
                                             <th> # </th>
+                                            <?php if ($who == 5) { ?>
+                                                <th> الكورس </th>
+                                            <?php } else { ?>
+                                                <th> الطالب </th>
+                                            <?php } ?>
                                             <th> المبلغ </th>
+                                            <th> المتبقى </th>
                                             <th> التاريخ </th>
                                             <th> الفرع </th>
                                             <th>  طربقة الدفع </th>
@@ -137,16 +140,22 @@
                                         $i = 1;
                                         foreach ($allPayments as $payment) {
                                             ?>
-                                        <tr>
-                                            <td> <?=$i?> </td>
-                                            <td> $<?=$payment['value']?> </td>
-                                            <td> <?=$payment['created_at']?> </td>
-                                            <td> <?=$payment['branch']?> </td>
-                                            <td> <?=$payment['paymentmethod']?> </td>
-                                            <td> <?=$payment['creator']?> </td>
-                                        </tr>
-                                        <?php
-                                        $i++;
+                                            <tr>
+                                                <td> <?= $i ?> </td>
+                                                <?php if ($who == 5) { ?>
+                                                    <td> <?= $payment['course'] ?> </td>
+                                                <?php } else { ?>
+                                                    <td> <?= $payment['student'] ?> </td>
+                                                <?php } ?>
+                                                <td> <?= $payment['value'] ?> </td>
+                                                <td> <?= $payment['remaing'] ?> </td>
+                                                <td> <?= $payment['created_at'] ?> </td>
+                                                <td> <?= $payment['branch'] ?> </td>
+                                                <td> <?= $payment['paymentmethod'] ?> </td>
+                                                <td> <?= $payment['creator'] ?> </td>
+                                            </tr>
+                                            <?php
+                                            $i++;
                                         }
                                         ?>
                                     </tbody>

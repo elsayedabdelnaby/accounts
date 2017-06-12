@@ -220,6 +220,7 @@
                                                 <th> ألاسم </th>
                                                 <th> السعر </th>
                                                 <th> تم الانشاء ب</th>
+                                                <th> اخرى </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -231,6 +232,8 @@
                                                         <td><a href="<?= URL ?>courses/<?= $course['id'] ?>"><?= $course['name'] ?> </a></td>
                                                         <td> <?= $course['price'] ?> </td>
                                                         <td> <?= $course['created_by'] ?> </td>
+                                                        <td> <a href="<?= URL ?>courses/<?= $course['id'] ?>/pays" class="btn btn-outline btn-circle btn-sm purple" target="_blank">
+                                    <i class="fa fa-edit"></i> </a> </td>
                                                     </tr>
                                                     <?php
                                                 }

@@ -11,7 +11,14 @@ $error_msg = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $form_type = 'insert';
-    if (isset($_GET['id'])) { // edit/update form
+    if (isset($_GET['pays'])) {
+        $who = 6;
+        $obj = $course->get(array('meds_courses.id = ' => $_GET['id']));
+        $allPayments = $course->getAllPayments($_GET['id']);
+        $total = $course->getTotalPayments($_GET['id']);
+        include_once '../views/entrancedetails.php';
+        return;
+    } else if (isset($_GET['id'])) { // edit/update form
         $course_id = $_GET['id'];
         $form_type = 'update';
         $row = $course->get(array('meds_courses.id = ' => $course_id));
