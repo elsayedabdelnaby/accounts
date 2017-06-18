@@ -10,46 +10,25 @@
             </a>
         </li>
         <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
+            <a href="<?= URL ?>branches" class="nav-link nav-toggle">
                 <i class="icon-puzzle"></i>
                 <span class="title">الافرع</span>
                 <span class="arrow"></span>
             </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="<?= URL ?>branches" class="nav-link ">
-                        <span class="title">اضافة فرع جديد</span>
-                    </a>
-                </li>
-            </ul>
         </li>
         <li class="nav-item  ">
-            <a href="?p=" class="nav-link nav-toggle">
+            <a href="<?= URL ?>paymentmethods" class="nav-link nav-toggle">
                 <i class="icon-wallet"></i>
                 <span class="title">طرق الدفع</span>
                 <span class="arrow"></span>
             </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="<?= URL ?>paymentmethods" class="nav-link ">
-                        <span class="title">اضافة طريقة دفع</span>
-                    </a>
-                </li>
-            </ul>
         </li>
         <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
+            <a href="<?= URL ?>vendors" class="nav-link nav-toggle">
                 <i class="icon-pointer"></i>
                 <span class="title">المعامل</span>
                 <span class="arrow"></span>
             </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="<?= URL ?>vendors" class="nav-link ">
-                        <span class="title">اضافة معمل </span>
-                    </a>
-                </li>
-            </ul>
         </li>
         <li class="nav-item">
             <a href="<?= URL ?>instructors" class="nav-link nav-toggle">
@@ -57,135 +36,51 @@
                 <span class="title">المحاضرين</span>
                 <span class="arrow"></span>
             </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="<?= URL ?>instructors" class="nav-link ">
-                        <span class="title">اضافة محاضر جديد</span>
-                    </a>
-                </li>
-            </ul>
         </li>
         <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
+            <a href="<?= URL ?>courses" class="nav-link nav-toggle">
                 <i class="icon-briefcase"></i>
                 <span class="title">الكورسات</span>
                 <span class="arrow"></span>
             </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="<?= URL ?>courses" class="nav-link ">
-                        <span class="title">اضافة كورس جديد</span>
-                    </a>
-                </li>
-            </ul>
         </li>
         <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
+            <a href="<?= URL ?>students" class="nav-link nav-toggle">
                 <i class="icon-diamond"></i>
                 <span class="title">الطلبة</span>
                 <span class="arrow"></span>
             </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="<?= URL ?>students" class="nav-link ">
-                        <span class="title">اضافة طالب</span>
-                    </a>
-                </li>
-            </ul>
         </li>
         
         <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
+            <a href="<?= URL ?>employes" class="nav-link nav-toggle">
                 <i class="icon-layers"></i>
                 <span class="title">الموظفين</span>
                 <span class="arrow"></span>
             </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="<?= URL ?>employes" class="nav-link ">
-                        <span class="title">اضافة موظف جديد</span>
-                    </a>
-                </li>
-            </ul>
         </li>
         <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
+            <a href="<?= URL ?>payments" class="nav-link nav-toggle">
                 <i class="icon-feed"></i>
                 <span class="title">الخرج</span>
                 <span class="arrow"></span>
             </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="<?= URL ?>payments" class="nav-link ">
-                        <span class="title">اذن خرج</span>
-                    </a>
-                </li>
-            </ul>
         </li>
         <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
+            <a href="<?= URL ?>entrances" class="nav-link nav-toggle">
                 <i class=" icon-wrench"></i>
                 <span class="title">الدخل</span>
                 <span class="arrow"></span>
             </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="<?= URL ?>entrances" class="nav-link ">
-                        <span class="title"> </span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="layout_full_height_portlet.html" class="nav-link ">
-                        <span class="title">Full Height Portlet</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="layout_full_height_content.html" class="nav-link ">
-                        <span class="title">Full Height Content</span>
-                    </a>
-                </li>
-            </ul>
         </li>
         <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
+            <a href="<?= URL ?>users" class="nav-link nav-toggle">
                 <i class="icon-basket"></i>
-                <span class="title">eCommerce</span>
+                <span class="title">المستخدمبن</span>
                 <span class="arrow"></span>
             </a>
-            <ul class="sub-menu">
-                <li class="nav-item  ">
-                    <a href="ecommerce_index.html" class="nav-link ">
-                        <i class="icon-home"></i>
-                        <span class="title">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="ecommerce_orders.html" class="nav-link ">
-                        <i class="icon-basket"></i>
-                        <span class="title">Orders</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="ecommerce_orders_view.html" class="nav-link ">
-                        <i class="icon-tag"></i>
-                        <span class="title">Order View</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="ecommerce_products.html" class="nav-link ">
-                        <i class="icon-graph"></i>
-                        <span class="title">Products</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="ecommerce_products_edit.html" class="nav-link ">
-                        <i class="icon-graph"></i>
-                        <span class="title">Product Edit</span>
-                    </a>
-                </li>
-            </ul>
         </li>
-        <li class="nav-item  ">
+        <!--li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="icon-docs"></i>
                 <span class="title">Apps</span>
@@ -519,7 +414,7 @@
                         <i class="icon-bar-chart"></i> Item 3 </a>
                 </li>
             </ul>
-        </li>
+        </li-->
     </ul>
     <!-- END SIDEBAR MENU -->
 </div>

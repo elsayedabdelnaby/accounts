@@ -42,6 +42,8 @@ RewriteRule ^employes?([^/]*)$ controllers/EmployesController.php?val=$1 [L]
 RewriteRule ^employes/([^/]*)/([^/]*)$ controllers/EmployesController.php?id=$1&pays=$2 [L]
 RewriteRule ^payments$ controllers/PaymentsController.php [L]
 RewriteRule ^entrances$ controllers/EntrancesController.php [L]
+RewriteRule ^users$ controllers/UsersController.php [L]
+RewriteRule ^users/([^/]*)$ controllers/UsersController.php?id=$1 [L]
 Options All -Indexes
 
 <Files config.inc.php>
